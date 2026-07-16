@@ -1,0 +1,24 @@
+[
+  {
+    "objectID": "ch1-two-sample-tests-key-ideas.html",
+    "href": "ch1-two-sample-tests-key-ideas.html",
+    "title": "Key Ideas",
+    "section": "",
+    "text": "Two-Sample Tests & Permutation Tests",
+    "crumbs": [
+      "Chapter 1: Two-Sample Tests & Permutation Tests",
+      "Key Ideas"
+    ]
+  },
+  {
+    "objectID": "ch1-two-sample-tests-key-ideas.html#two-sample-tests-permutation-tests",
+    "href": "ch1-two-sample-tests-key-ideas.html#two-sample-tests-permutation-tests",
+    "title": "Key Ideas",
+    "section": "",
+    "text": "When to compare two groups\nThe most basic statistical question is: are these two groups different? When we have a continuous outcome measured in two populations (e.g., room and board costs at private vs. public colleges), the two-sample t-test gives us a formal framework to answer this.\n\n\nThe two-sample t-test\nThe test compares two sample means and asks whether the difference is larger than we’d expect from random variation alone. The key assumptions are:\n\nObservations are independent within and between groups\nEach group is approximately normally distributed (or samples are large enough for CLT)\nFor the classic test: equal variances; for Welch’s test: variances can differ\n\nWhen variances differ, use Welch’s t-test (the default in R’s t.test()). You can check with an F-test or simply by comparing the group standard deviations.\n\n\nOne-sided vs. two-sided tests\n\nTwo-sided: \\(H_0: \\mu_1 = \\mu_2\\) vs. \\(H_a: \\mu_1 \\neq \\mu_2\\)\nOne-sided: \\(H_0: \\mu_1 \\leq \\mu_2\\) vs. \\(H_a: \\mu_1 &gt; \\mu_2\\)\n\nUse one-sided only when you have a directional hypothesis before seeing the data.\n\n\nPermutation tests (randomization tests)\nWhen normality assumptions are questionable (e.g., skewed distributions), permutation tests provide a non-parametric alternative:\n\nCompute the observed test statistic (e.g., t-statistic)\nShuffle the group labels many times (e.g., 10,000 permutations)\nRecompute the statistic each time to build a null distribution\nCompare the observed statistic to this null distribution\n\nThe p-value is the proportion of permuted statistics as extreme as (or more extreme than) the observed one. This approach makes no distributional assumptions — it directly tests whether the group labels matter.\n\n\nConnection to the exercises\nIn Assignment 1, you’ll apply these ideas to the College dataset: comparing room/board costs and top-10% enrollment between private and public colleges. Question 1 uses the standard t-test (justified by approximate normality), while Question 2 introduces the permutation approach when the distribution is skewed.",
+    "crumbs": [
+      "Chapter 1: Two-Sample Tests & Permutation Tests",
+      "Key Ideas"
+    ]
+  }
+]
