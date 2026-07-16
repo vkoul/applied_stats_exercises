@@ -1,0 +1,51 @@
+# Key Ideas {.unnumbered}
+
+## Two-Sample Tests & Permutation Tests
+
+### When to compare two groups
+
+The most basic statistical question is: *are these two groups different?* When we have a continuous outcome measured in two populations (e.g., room and board costs at private vs. public colleges), the two-sample t-test gives us a formal framework to answer this.
+
+### The two-sample t-test
+
+The test compares two sample means and asks whether the difference is larger than we'd expect from random variation alone. The key assumptions are:
+
+- Observations are independent within and between groups
+- Each group is approximately normally distributed (or samples are large enough for CLT)
+- For the classic test: equal variances; for Welch's test: variances can differ
+
+**When variances differ**, use Welch's t-test (the default in R's `t.test()`). You can check with an F-test or simply by comparing the group standard deviations.
+
+### One-sided vs. two-sided tests
+
+- **Two-sided**: $H_0: \mu_1 = \mu_2$ vs. $H_a: \mu_1 \neq \mu_2$
+- **One-sided**: $H_0: \mu_1 \leq \mu_2$ vs. $H_a: \mu_1 > \mu_2$
+
+Use one-sided only when you have a directional hypothesis *before* seeing the data.
+
+### Permutation tests (randomization tests)
+
+When normality assumptions are questionable (e.g., skewed distributions), permutation tests provide a non-parametric alternative:
+
+1. Compute the observed test statistic (e.g., t-statistic)
+2. Shuffle the group labels many times (e.g., 10,000 permutations)
+3. Recompute the statistic each time to build a null distribution
+4. Compare the observed statistic to this null distribution
+
+The p-value is the proportion of permuted statistics as extreme as (or more extreme than) the observed one. This approach makes no distributional assumptions — it directly tests whether the group labels matter.
+
+### The sign test
+
+The sign test is the simplest non-parametric test. For testing whether a distribution is symmetric around zero (or whether positive outcomes are as likely as negative), count the number of positive observations and compare to the Binomial(n, 0.5) distribution. It requires no assumptions about the shape of the distribution.
+
+### One-way ANOVA
+
+When comparing more than two groups, the one-way ANOVA extends the two-sample t-test:
+
+$$F = \frac{\text{Between-group variability}}{\text{Within-group variability}}$$
+
+Under $H_0$ (all group means are equal), $F$ follows an F-distribution. A large F indicates that at least one group mean differs. The log-transformation is often useful when the original data is skewed.
+
+### Connection to the exercises
+
+Assignment 1 covers the full spectrum of group comparison methods: Question 1 uses the standard t-test on `Room.Board`; Question 2 introduces the permutation test for `Top10perc`; Question 3 applies the sign test to fund manager returns using the Binomial distribution; and Question 4 uses one-way ANOVA (with simulation) for wages across marital status categories.

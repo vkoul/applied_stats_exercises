@@ -1,0 +1,9 @@
+/.quarto/
+*.Rproj.user
+.Rhistory
+.RData
+*.pdf
+_freeze/
+
+**/*.quarto_ipynb
+docs/

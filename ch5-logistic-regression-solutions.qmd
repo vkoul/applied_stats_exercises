@@ -1,0 +1,47 @@
+# Solutions {.unnumbered}
+
+## Assignment 5: Final Project — Ames Housing Data
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(broom)
+library(leaps)
+```
+
+### Data Loading and Split
+
+```{r}
+set.seed(1)
+# ames <- read.csv("https://web.stanford.edu/class/stats191/data/ames2000_NAfix.csv")
+# selection_idx <- sample(1:nrow(ames), 1000)
+# ames_selection <- ames[selection_idx, ]
+# ames_validation <- ames[-selection_idx, ]
+```
+
+### Part 1: The Study
+
+```{r}
+
+```
+
+### Part 2: Initial Model
+
+```{r}
+
+```
+
+### Part 3: Selected Model
+
+```{r}
+
+```
+
+### Part 4: Effects of Interest
+
+```{r}
+
+```

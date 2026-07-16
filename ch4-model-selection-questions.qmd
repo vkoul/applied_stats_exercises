@@ -1,0 +1,74 @@
+# Questions {.unnumbered}
+
+## Assignment 4: Model Selection & Logistic Regression
+
+*Source: [Assignment 4](https://web.stanford.edu/class/stats191/assignments/assignment4.html)*
+
+### Question 1: Interpreting parameters when features are correlated
+
+Generate a simulated data set as follows:
+
+```r
+set.seed(1)
+X1 <- runif(100)                       # uniformly distributed between 0 and 1
+X2 <- 0.5 * X1 + rnorm(100) / 10      # slightly noisy version of X1
+Y <- 3 + 2 * X1 + 1 * X2 + 0.95 * rnorm(100)
+```
+
+**(a)** Consider the data generated above and the model `lm(Y ~ X1 + X2)`. What are the true $\beta_0$, $\beta_1$, $\beta_2$? What is the true $\sigma^2$?
+
+**(b)** Create a scatterplot with `X1` on the X-axis and `X2` on the Y-axis. What is the sample correlation of `X1` and `X2`? (Use `cor`.)
+
+**(c)** Fit the model `lm(Y ~ X1 + X2)`. At level 5%, can you reject the null hypothesis $H_0: \beta_{X1} = 0$? How about the null hypothesis $H_0: \beta_{X2} = 0$?
+
+**(d)** Fit the model `lm(Y ~ X1)`. At level 5%, can you reject the null hypothesis $H_0: \beta_{X1} = 0$? Next, fit the model `lm(Y ~ X2)`. At level 5%, can you reject the null hypothesis $H_0: \beta_{X2} = 0$?
+
+**(e)** Do the results of parts (c) and (d) contradict each other? Explain.
+
+**(f)** In this part, we'll add a single point to the data set to explore outliers and high leverage. We'll call a point an outlier if its residual is at least 3 in absolute value, and we'll say a point has high leverage if its `hatvalues` score is at least 0.2. For each of the following, pick values for `(X1, X2, Y)`:
+
+- **A.** A point that would be an outlier relative to the other 100 points but not a point of high leverage.
+- **B.** A point that would be a point of high leverage relative to the other 100 points but not an outlier.
+- **C.** A point that would be both a point of high leverage and an outlier relative to the other 100 points.
+
+### Question 2: Model selection for multiple linear regression
+
+Use the `Carseats` data we saw in Assignment 3 for this problem.
+
+**(a)** Fit a full model `Sales ~ .` to the data.
+
+**(b)** Extract the design matrix from your model in (a), discarding the column for the intercept.
+
+**(c)** Use `leaps` to select a model using adjusted $R^2$ as a criterion, storing the 5 best models of each size.
+
+**(d)** Use `leaps` to select a model using Mallow's $C_p$ as a criterion, storing the 5 best models of each size.
+
+**(e)** Use `step` to select a model using `direction="forward"`, starting from `Sales ~ 1` with the upper model being the model in (a). Do the models in (c), (d), and (e) agree?
+
+**(f)** Make a plot of $C_p$ versus model size. Is your selected model clearly better than all others or are there other models of similar quality?
+
+### Question 3: Logistic Regression
+
+Consider the `Wage` data we saw in Assignment 1.
+
+**(a)** Create an outcome variable `high` which is `TRUE` if `wage > 250` and `FALSE` otherwise.
+
+**(b)** Fit a logistic regression model (`high ~ maritl + age + health + health_ins + education + race`).
+
+**(c)** At a 5% level, test the null hypothesis that the effect of `maritl` is 0 in the model in part (b).
+
+**(d)** Split the data into two sets of equal size using this snippet of code to form a half for model selection and a second half for inference. Focus on students with at least HS education:
+
+```r
+set.seed(1)
+atleast_HS <- Wage$education != "1. < HS Grad"
+selection <- rep(TRUE, nrow(Wage))
+selection[sample(1:nrow(Wage), 0.5 * nrow(Wage), replace = FALSE)] <- FALSE
+inference <- !selection
+selection <- selection & atleast_HS
+inference <- inference & atleast_HS
+```
+
+**(e)** Using subset-selection, select a model using forward selection with `step`, with the largest model being the model in (b). Call this model `selected.glm`.
+
+**(f)** Fit the same model selected in (e) on subset `inference`. Call this model `split.glm`. Compare the `summary()` of `split.glm` and `selected.glm`. In terms of overall significance of estimated effects, would your conclusions be very different between `selected.glm` and `split.glm`? Do any effects that were significant at level 5% in `selected.glm` switch to not significant in `split.glm`?

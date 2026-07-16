@@ -1,0 +1,64 @@
+# Solutions {.unnumbered}
+
+## Assignment 2: Simple Linear Regression
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(broom)
+```
+
+### Question 1
+
+**(a)**
+
+```{r}
+
+```
+
+**(b)**
+
+```{r}
+
+```
+
+**(c)**
+
+```{r}
+
+```
+
+**(d)**
+
+```{r}
+
+```
+
+### Question 2
+
+**(a)**
+
+```{r}
+
+```
+
+**(b)**
+
+```{r}
+
+```
+
+**(c)**
+
+```{r}
+
+```
+
+**(d)**
+
+```{r}
+
+```

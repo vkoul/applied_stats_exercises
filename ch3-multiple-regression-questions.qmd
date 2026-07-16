@@ -1,0 +1,89 @@
+# Questions {.unnumbered}
+
+## Assignment 3: Multiple Regression & Diagnostics
+
+*Source: [Assignment 3](https://web.stanford.edu/class/stats191/assignments/assignment3.html)*
+
+### Question 1
+
+We revisit Tomasetti's and Vogelstein's study on cancer incidence across tissues from Assignment 2. The second part of their paper deals with the existence of two clusters in the dataset. According to the authors, D-tumours (D for deterministic) can be attributed to some degree to environmental and genetic factors, while the risk of R-tumours (R for replicative) is affected mainly by random mutations occurring during replication of stem cells.
+
+**(a)** The dataset also includes a column `Cluster` according to the classification of that tumour as Deterministic or Replicative. Fit a linear model as in Assignment 2, but with a different slope for D- and R-tumours.
+
+**(b)** Make a scatterplot including the two regression lines.
+
+**(c)** Conduct an F-test to compare the regression model above to the regression model which does not account for this classification. What is the p-value?
+
+### Question 2
+
+::: {.callout-note collapse="true" title="Dataset: Carseats (ISLR2 package)"}
+The `Carseats` dataset from `ISLR2` contains simulated data about child car seat sales at 400 different stores.
+
+| Variable | Description |
+|----------|-------------|
+| Sales | Unit sales (thousands) |
+| Advertising | Local advertising budget (thousands) |
+| CompPrice | Price charged by competitor |
+| Price | Price for car seats at each site |
+| Urban | Yes/No factor for urban location |
+| US | Yes/No factor for US store |
+:::
+
+**(a)** Fit a multiple regression model to predict `Sales` using `Advertising`, `CompPrice`, `Price`, `Urban`, and `US`.
+
+**(b)** Provide an interpretation of each coefficient in the model. Be careful — some of the variables in the model are categorical.
+
+**(c)** For which of the predictors can you reject the null hypothesis $H_0: \beta_j = 0$ at $\alpha = 0.05$?
+
+**(d)** On the basis of the previous question, fit a smaller model that only uses the predictors for which there is evidence of association with the outcome.
+
+**(e)** How well do the models in parts (a) and (d) fit the data?
+
+**(f)** Using the model from part (d), obtain 90% confidence intervals for the coefficients.
+
+**(g)** Is there any evidence of outliers or high leverage observations in the model from part (d)?
+
+### Question 3
+
+::: {.callout-note collapse="true" title="Dataset: state.x77 (built-in R dataset)"}
+The dataset `state.x77` in R contains the following statistics related to the 50 states in the USA:
+
+| Variable | Description |
+|----------|-------------|
+| Population | Population estimate (1975) |
+| Income | Per capita income (1974) |
+| Illiteracy | Illiteracy (1970, percent of population) |
+| HS.Grad | Percent high school graduates (1970) |
+
+Make it into a data frame using: `state.data <- data.frame(state.x77)`
+:::
+
+We are interested in the relation between `Income` and the other 3 variables.
+
+**(a)** Produce a 4 by 4 scatter plot of the variables above.
+
+**(b)** Fit a multiple linear regression model to the data with `Income` as the outcome and `Population`, `Illiteracy`, `HS.Grad` as the independent variables.
+
+**(c)** For which of the predictors can you reject the null hypothesis $H_0: \beta_j = 0$ at $\alpha = 0.05$?
+
+**(d)** Compare this model to one that uses only `Population` as a covariate.
+
+**(e)** Produce standard diagnostic plots of the multiple regression fit in part (b). Summarize the results.
+
+**(f)** Find states with outlying predictors by looking at the leverage values using `hatvalues`. Use a cutoff of 0.2.
+
+**(g)** Find outliers, if any, in the response. Remove them from the data and refit a multiple linear regression model and compare the result with the previous fit.
+
+### Question 4
+
+::: {.callout-note collapse="true" title="Dataset: iris (built-in R dataset)"}
+The `iris` dataset gives measurements in centimeters of sepal length, sepal width, petal length, and petal width for 50 flowers from each of 3 species of iris.
+:::
+
+**(a)** Fit a multiple linear regression model to the data with sepal length as the dependent variable and sepal width, petal length, and petal width as the independent variables.
+
+**(b)** Test the reduced model $H_0: \beta_{\text{sepal.width}} = \beta_{\text{petal.length}}$ with an F-test at level $\alpha = 0.05$.
+
+**(c)** Test $H_0: \beta_{\text{sepal.width}} = -\beta_{\text{petal.length}}$ at level $\alpha = 0.05$.
+
+**(d)** Test $H_0: \beta_{\text{sepal.width}} = \beta_{\text{petal.length}}$ at level $\alpha = 0.05$.

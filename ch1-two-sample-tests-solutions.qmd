@@ -1,0 +1,200 @@
+# Solutions {.unnumbered}
+
+## Assignment 1: Two-Sample Tests & Permutation Tests
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(ISLR2)
+data("College")
+```
+
+### Question 1: Room and Board Costs
+
+**(a) Boxplot and histograms**
+
+```{r}
+ggplot(College, aes(y = Room.Board, x = Private, fill = Private)) +
+  geom_boxplot() +
+  ggtitle("Room and Board by Private/Public")
+```
+
+```{r}
+ggplot(College, aes(x = Room.Board, fill = Private)) +
+  geom_histogram(alpha = 0.5, position = "identity", bins = 30) +
+  ggtitle("Room and Board by Private/Public")
+```
+
+**(b) Is the t-test justified?**
+
+The histograms show approximately normal distributions for both groups, with similar shapes. The two-sample t-test is justified here.
+
+**(c) Two-sample t-test**
+
+```{r}
+College %>%
+  group_by(Private) %>%
+  summarize(
+    mean = mean(Room.Board),
+    sd = sd(Room.Board),
+    n = n()
+  )
+```
+
+```{r}
+t.test(Room.Board ~ Private, data = College)
+```
+
+The variances differ between groups, so we use the Welch t-test (R's default). The p-value is very small, indicating a significant difference in room and board costs between private and public colleges.
+
+**(d) One-sided test**
+
+```{r}
+t.test(Room.Board ~ Private, data = College, alternative = "greater")
+```
+
+### Question 2: Top 10 Percent & Permutation Test
+
+**(a) Boxplots and histograms**
+
+```{r}
+ggplot(College, aes(y = Top10perc, x = Private, fill = Private)) +
+  geom_boxplot() +
+  ggtitle("Top10perc by Private/Public")
+```
+
+```{r}
+ggplot(College, aes(x = Top10perc, fill = Private)) +
+  geom_histogram(alpha = 0.5, position = "identity", bins = 30) +
+  ggtitle("Top10perc by Private/Public")
+```
+
+**(b) Observed t-statistic**
+
+```{r}
+College %>%
+  group_by(Private) %>%
+  summarize(
+    mean = mean(Top10perc),
+    sd = sd(Top10perc)
+  )
+```
+
+```{r}
+observed_t <- t.test(Top10perc ~ Private, data = College)$statistic
+observed_t
+```
+
+**(c) Normality assessment**
+
+The histograms show right-skewed distributions, particularly for private colleges. The normality assumption is not well-satisfied. A permutation test is a better alternative since it makes no distributional assumptions.
+
+**(d) Permutation test**
+
+```{r}
+set.seed(191)
+n_iterations <- 10000
+t_stat_shuffle <- numeric(n_iterations)
+
+for (i in 1:n_iterations) {
+  shuffled_private <- sample(College$Private)
+  t_stat_shuffle[i] <- t.test(Top10perc ~ shuffled_private, data = College)$statistic
+}
+```
+
+```{r}
+ggplot(data.frame(t = t_stat_shuffle), aes(x = t)) +
+  geom_histogram(bins = 50, fill = "steelblue", alpha = 0.7) +
+  geom_vline(xintercept = observed_t, color = "red", linewidth = 1) +
+  ggtitle("Permutation Null Distribution vs. Observed t-statistic") +
+  labs(x = "t-statistic", y = "Count")
+```
+
+```{r}
+perm_pvalue <- mean(abs(t_stat_shuffle) >= abs(observed_t))
+cat("Permutation p-value:", perm_pvalue, "\n")
+```
+
+The permutation p-value confirms the parametric result: there is a significant difference in `Top10perc` between private and public colleges, and this conclusion holds without assuming normality.
+
+### Question 3: Sign Test
+
+**(a)**
+
+```{r}
+data("Fund")
+manager14_returns <- Fund$Manager14
+n_positive <- sum(manager14_returns > 0)
+cat("Number of positive months for Manager14:", n_positive, "out of 50\n")
+```
+
+**(b)**
+
+```{r}
+
+```
+
+**(c)**
+
+```{r}
+
+```
+
+**(d)**
+
+```{r}
+
+```
+
+**(e)**
+
+```{r}
+
+```
+
+**(f)**
+
+```{r}
+
+```
+
+### Question 4: One-Way ANOVA
+
+**(a)**
+
+```{r}
+data("Wage")
+```
+
+**(b)**
+
+```{r}
+
+```
+
+**(c)**
+
+```{r}
+
+```
+
+**(d)**
+
+```{r}
+
+```
+
+**(e)**
+
+```{r}
+
+```
+
+**(f)**
+
+```{r}
+
+```

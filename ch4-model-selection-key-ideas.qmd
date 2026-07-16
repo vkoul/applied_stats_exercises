@@ -1,0 +1,81 @@
+# Key Ideas {.unnumbered}
+
+## Model Selection
+
+### The bias-variance tradeoff
+
+Adding more predictors always reduces training error (RSS), but doesn't always improve prediction on new data. This is the fundamental tradeoff:
+
+- **Too few predictors** (underfitting): high bias, the model misses real patterns
+- **Too many predictors** (overfitting): high variance, the model fits noise
+
+Model selection methods try to find the sweet spot.
+
+### Information criteria
+
+These add a penalty for model complexity to the training error:
+
+- **AIC** (Akaike): $\text{AIC} = n\log(\text{RSS}/n) + 2p$
+- **BIC** (Bayesian): $\text{BIC} = n\log(\text{RSS}/n) + p\log(n)$
+
+BIC penalizes complexity more heavily (especially for large $n$), so it tends to select simpler models. Lower values are better for both.
+
+### Cross-validation
+
+Split data into training and validation sets to directly estimate prediction error:
+
+- **K-fold CV**: split data into $K$ folds, train on $K-1$, predict the held-out fold, rotate
+- **Leave-one-out CV (LOOCV)**: $K = n$, expensive but low bias
+- Typical choice: $K = 5$ or $K = 10$
+
+Select the model with lowest average CV error.
+
+### Stepwise selection
+
+Automated procedures that add or remove predictors sequentially:
+
+- **Forward selection**: start empty, add the best predictor at each step
+- **Backward elimination**: start full, remove the least useful predictor at each step
+- **Both directions**: combine forward and backward at each step
+
+Use AIC or BIC as the criterion. In R: `step(model, direction = "both")`.
+
+### Penalized regression (Ridge and LASSO)
+
+Instead of selecting/dropping predictors, shrink coefficients toward zero:
+
+- **Ridge** ($L_2$ penalty): $\sum (Y_i - \hat{Y}_i)^2 + \lambda \sum \beta_j^2$ — shrinks but doesn't zero out coefficients
+- **LASSO** ($L_1$ penalty): $\sum (Y_i - \hat{Y}_i)^2 + \lambda \sum |\beta_j|$ — can shrink coefficients exactly to zero (automatic variable selection)
+- **Elastic Net**: combines both penalties
+
+The tuning parameter $\lambda$ controls the strength of penalization. Choose by cross-validation.
+
+### Interpreting correlated features
+
+When predictors are correlated, dropping one can change the coefficients of others dramatically. Model selection results should be interpreted cautiously: the "best" model depends on the criterion, and different criteria may select different models.
+
+### Logistic regression
+
+When the response is binary (0/1), logistic regression models the log-odds:
+
+$$\log\left(\frac{p(X)}{1 - p(X)}\right) = \beta_0 + \beta_1 X_1 + \cdots + \beta_p X_p$$
+
+Key points:
+
+- Coefficients are changes in **log-odds**, not probabilities directly
+- $e^{\beta_j}$ gives the **odds ratio** for a one-unit increase in $X_j$
+- Use `glm(..., family = binomial)` in R
+- Model selection (e.g., forward `step`) applies the same way as in linear regression
+
+### Data splitting for inference after selection
+
+When you select a model using the data, the p-values from that same data are no longer valid (they're optimistically biased). A principled approach:
+
+1. Split data in half: one for model **selection**, one for **inference**
+2. Use the selection half for stepwise/variable selection
+3. Refit the chosen model on the inference half
+4. Report p-values and confidence intervals from the inference fit
+
+### Connection to the exercises
+
+Assignment 4 asks you to: (Q1) explore multicollinearity with simulated correlated features and examine outliers/leverage; (Q2) apply model selection (adjusted $R^2$, $C_p$, forward `step`) to the Carseats data; (Q3) fit logistic regression to Wage data and use data splitting for honest inference after model selection.

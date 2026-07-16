@@ -1,0 +1,37 @@
+# Preface {.unnumbered}
+
+This book contains exercises and solutions from **STATS 191: Introduction to Applied Statistics** at Stanford University.
+
+## What this book covers
+
+The course introduces statistical models used in the social and biological sciences, with emphasis on conceptual understanding and practical application using R. Topics include:
+
+- Two-sample tests and permutation tests
+- Simple linear regression
+- Multiple linear regression and diagnostics
+- Model selection (AIC, BIC, cross-validation, penalized methods)
+- Logistic regression
+
+## Structure
+
+Each chapter is organized into three sections:
+
+1. **Key Ideas** — Intuitive explanations of the concepts needed for the exercises
+2. **Questions** — The assignment problems (reproduced from the course materials)
+3. **Solutions** — R code and interpretations
+
+## Software
+
+All analyses use R with the tidyverse ecosystem. Key packages include:
+
+```r
+library(tidyverse)
+library(ISLR)
+library(broom)
+library(car)
+library(glmnet)
+```
+
+## Source
+
+Based on course materials from [STATS 191](https://web.stanford.edu/class/stats191/) at Stanford University.

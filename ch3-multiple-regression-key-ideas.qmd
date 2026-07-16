@@ -1,0 +1,56 @@
+# Key Ideas {.unnumbered}
+
+## Multiple Regression & Diagnostics
+
+### Extending to multiple predictors
+
+Multiple linear regression models a response as a linear function of $p$ predictors:
+
+$$Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \cdots + \beta_p X_{ip} + \varepsilon_i$$
+
+In matrix form: $\mathbf{Y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}$
+
+The least squares solution is:
+
+$$\hat{\boldsymbol{\beta}} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{Y}$$
+
+### Interpreting coefficients
+
+Each $\beta_j$ represents the expected change in $Y$ for a one-unit increase in $X_j$, **holding all other predictors constant**. This "all else equal" interpretation is crucial and differs from the simple regression slope.
+
+### Adjusted $R^2$
+
+Unlike $R^2$, adjusted $R^2$ penalizes for adding predictors that don't improve the model:
+
+$$R^2_{\text{adj}} = 1 - \frac{(1-R^2)(n-1)}{n-p-1}$$
+
+It can decrease when adding irrelevant predictors.
+
+### F-test for overall significance
+
+Tests whether *any* predictor has a relationship with $Y$:
+
+$$H_0: \beta_1 = \beta_2 = \cdots = \beta_p = 0$$
+
+$$F = \frac{(\text{TSS} - \text{RSS})/p}{\text{RSS}/(n-p-1)}$$
+
+### Multicollinearity
+
+When predictors are correlated, individual coefficient estimates become unstable (large standard errors) even if the overall model fits well. Diagnose with:
+
+- **Variance Inflation Factor (VIF)**: $\text{VIF}_j = \frac{1}{1-R^2_j}$ where $R^2_j$ is from regressing $X_j$ on all other predictors. VIF > 5-10 is concerning.
+- Correlation matrix of predictors
+
+### Diagnostics and influence
+
+- **Leverage** ($h_{ii}$): measures how unusual an observation's predictor values are. High leverage points *can* be influential.
+- **Cook's distance**: combines leverage and residual size to measure overall influence on all fitted values.
+- **Residual plots**: residuals vs. fitted, residuals vs. each predictor, Q-Q plot, scale-location plot.
+
+### Categorical predictors
+
+Categorical variables enter the model as dummy/indicator variables. A factor with $k$ levels needs $k-1$ dummy variables. The coefficients represent differences from the reference (baseline) level.
+
+### Connection to the exercises
+
+Assignment 3 asks you to fit multiple regression models, interpret coefficients in the presence of other predictors, diagnose multicollinearity, identify influential observations, and assess model assumptions.

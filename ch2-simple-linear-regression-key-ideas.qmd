@@ -1,0 +1,50 @@
+# Key Ideas {.unnumbered}
+
+## Simple Linear Regression
+
+### The model
+
+Simple linear regression models the relationship between a single predictor $X$ and a response $Y$:
+
+$$Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i, \quad \varepsilon_i \sim N(0, \sigma^2)$$
+
+- $\beta_0$ (intercept): the expected value of $Y$ when $X = 0$
+- $\beta_1$ (slope): the expected change in $Y$ for a one-unit increase in $X$
+- $\varepsilon_i$: random error, assumed independent and normally distributed
+
+### Estimation by least squares
+
+The least squares estimates $\hat{\beta}_0$ and $\hat{\beta}_1$ minimize the sum of squared residuals:
+
+$$\text{RSS} = \sum_{i=1}^n (Y_i - \hat{Y}_i)^2$$
+
+The slope has a closed-form solution:
+
+$$\hat{\beta}_1 = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{\sum (X_i - \bar{X})^2} = r_{XY} \cdot \frac{s_Y}{s_X}$$
+
+### Inference
+
+- **t-test for slope**: $H_0: \beta_1 = 0$ tests whether $X$ has any linear relationship with $Y$
+- **Confidence interval**: $\hat{\beta}_1 \pm t^* \cdot SE(\hat{\beta}_1)$
+- **Prediction interval**: wider than confidence interval because it accounts for both estimation uncertainty and individual variability
+
+### $R^2$ and model fit
+
+$R^2$ is the proportion of variance in $Y$ explained by the model:
+
+$$R^2 = 1 - \frac{\text{RSS}}{\text{TSS}} = r_{XY}^2$$
+
+In simple regression, $R^2$ equals the square of the correlation coefficient.
+
+### Diagnostics
+
+Check assumptions by examining residuals:
+
+- **Linearity**: residuals vs. fitted values should show no pattern
+- **Normality**: Q-Q plot of residuals should be approximately linear
+- **Constant variance** (homoscedasticity): spread of residuals should be uniform
+- **Independence**: no structure in residual ordering
+
+### Connection to the exercises
+
+Assignment 2 applies simple linear regression to real datasets, asking you to fit models, interpret coefficients, construct confidence and prediction intervals, and check assumptions via residual plots.

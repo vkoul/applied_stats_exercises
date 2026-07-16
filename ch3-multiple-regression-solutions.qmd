@@ -1,0 +1,65 @@
+# Solutions {.unnumbered}
+
+## Assignment 3: Multiple Regression & Diagnostics
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(broom)
+library(car)
+```
+
+### Question 1
+
+**(a)**
+
+```{r}
+
+```
+
+**(b)**
+
+```{r}
+
+```
+
+**(c)**
+
+```{r}
+
+```
+
+**(d)**
+
+```{r}
+
+```
+
+### Question 2
+
+**(a)**
+
+```{r}
+
+```
+
+**(b)**
+
+```{r}
+
+```
+
+**(c)**
+
+```{r}
+
+```
+
+**(d)**
+
+```{r}
+
+```

@@ -1,0 +1,87 @@
+# Questions {.unnumbered}
+
+## Assignment 2: Simple Linear Regression
+
+*Source: [Assignment 2](https://web.stanford.edu/class/stats191/assignments/assignment2.html)*
+
+### Question 1
+
+::: {.callout-note collapse="true" title="Dataset: NewspapersData.txt"}
+In order to investigate the feasibility of starting a Sunday edition for a large metropolitan newspaper, information was obtained from a sample of 34 newspapers concerning their daily and Sunday circulation (in thousands). The data are in the file `NewspapersData.txt`.
+
+Download: `https://web.stanford.edu/class/stats191/data/NewspapersData.txt`
+:::
+
+**(a)** Load the data into R (use `read.table` rather than `read.csv`) and use a separator `'\t'`.
+
+**(b)** Construct a scatter plot of Sunday circulation versus daily circulation. Does the plot suggest a linear relationship between daily and Sunday circulation? Do you think this is a plausible relationship?
+
+**(c)** Fit a regression line predicting Sunday circulation from daily circulation and add the regression line to the plot in (b). State the equation of the estimated regression line.
+
+**(d)** Obtain 95% confidence intervals for $\beta_0$ and $\beta_1$. Do this in two ways: using the function `confint` and using the `summary` of your fitted model. Check that the answers match.
+
+**(e)** An industry veteran says: "I bet that if you increase daily circulation by 100, you'll see an increase of more than 100 in Sunday circulation." Test this (one-sided) hypothesis at level 5% using this data. State your hypothesis, test statistic and conclusion.
+
+**(f)** What proportion of the variability in Sunday circulation is accounted for by daily circulation?
+
+**(g)** Provide an interval estimate (based on 95% level) for the average Sunday circulation of newspapers with daily circulation of 500,000.
+
+**(h)** The particular newspaper that is considering a Sunday edition has a daily circulation of 500,000. Provide an interval estimate (based on 95% level) for the Sunday circulation of this paper. How does this interval differ from that given in (g)?
+
+### Question 2
+
+::: {.callout-note collapse="true" title="Dataset: Tomasetti.csv"}
+The article by Tomasetti and Vogelstein attempts to explain why cancer incidence varies drastically across tissues (e.g., why one is much more likely to develop lung cancer rather than pelvic bone cancer). The authors show that a higher average lifetime risk for a cancer in a given tissue correlates with the rate of replication of stem cells in that tissue. The dataset contains information about 31 tumour types.
+
+| Variable | Description |
+|----------|-------------|
+| Lscd | Lifetime stem cell divisions — total number of stem cell divisions during the average lifetime |
+| Risk | Lifetime risk for cancer of that tissue type |
+
+Download: `https://web.stanford.edu/class/stats191/data/Tomasetti.csv`
+:::
+
+**(a)** Fit a simple linear regression model to the data with `log(Risk)` as the dependent variable and `log(Lscd)` as the independent variable. Plot the estimated regression line.
+
+**(b)** Add upper and lower 95% prediction bands for the regression line on the plot, using `predict`. That is, produce one line for the upper limit of each interval over a sequence of densities, and one line for the lower limits of the intervals. Interpret these bands at an `Lscd` of $10^{10}$.
+
+**(c)** Test whether the slope in this regression is equal to 0 at level $\alpha = 0.05$. State the null hypothesis, the alternative, the conclusion and the p-value.
+
+**(d)** Give a 95% confidence interval for the slope of the regression line. Interpret your interval.
+
+**(e)** Report the $R^2$ and the adjusted $R^2$ of the model, as well as an estimate of the variance of the errors in the model.
+
+**(f)** Provide an interpretation of the $R^2$ you calculated above. According to a Reuters article: "Plain old bad luck plays a major role in determining who gets cancer and who does not, according to researchers who found that two-thirds of cancer incidence of various types can be blamed on random mutations and not heredity or risky habits like smoking." Is this interpretation of $R^2$ correct?
+
+### Question 3
+
+Let $Y$ and $X$ denote variables in a simple linear regression of $Y$ on $X$ that you've run for part of your research in your honors thesis. Suppose the model $Y = \beta_0 + \beta_1 X + \varepsilon$ satisfies the usual regression assumptions.
+
+The table below is a table similar to the output of `anova` when passed a simple linear regression model.
+
+|  | Df | Sum Sq | Mean Sq | F value | Pr(>F) |
+|--|---|--------|---------|---------|--------|
+| X | 1 | 492 | NA | NA | NA |
+| Residuals | 32 | NA | 119 | | |
+
+**(a)** Compute the missing values in the above table.
+
+**(b)** Test the null hypothesis $H_0: \beta_1 = 0$ at level $\alpha = 0.05$ using the above table. Can you test the hypothesis $H_0: \beta_1 = 1$?
+
+**(c)** Compute the $R^2$ for this simple linear regression.
+
+**(d)** If $Y$ and $X$ were reversed in the above regression, what would you expect $R^2$ to be?
+
+### Question 4
+
+Consider the `Wage` data we saw in Assignment 1.
+
+**(a)** Fit a linear model of `wage` on `age`. At a 5% level, is there evidence for a linear relationship between wage and age? Would you characterize the evidence as strong or weak?
+
+**(b)** What proportion of the variation in `wage` is explained by `age`? Is this a large amount of the total variation? Does this contradict your characterization of the evidence in (a)? Explain.
+
+**(c)** Based on the usual diagnostic plots as discussed in the textbook, does this model seem adequate?
+
+**(d)** Consider adding a quadratic term to the fit by using the formula `wage ~ poly(age, 2)` in fitting `lm`. Does this model explain appreciably more variation than your initial model?
+
+**(e)** Replot the diagnostics you used in (c) for this model. Have any of them changed appreciably?

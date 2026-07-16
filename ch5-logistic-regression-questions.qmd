@@ -1,0 +1,65 @@
+# Questions {.unnumbered}
+
+## Assignment 5: Final Project — Ames Housing Data
+
+*Source: [Assignment 5](https://web.stanford.edu/class/stats191/assignments/assignment5.html)*
+
+::: {.callout-note collapse="true" title="Dataset: Ames Housing (ames2000_NAfix.csv)"}
+The data for this final project is based on real estate sales in Ames, Iowa in the years 2006–2010. A description of the dataset can be found in Dean De Cock (2011), "Ames, Iowa: Alternative to the Boston Housing Data as an End of Semester Regression Project," *Journal of Statistical Education*, 19(3).
+
+A subsample of 2000 cases (with missing values fixed) is provided.
+
+Download: `https://web.stanford.edu/class/stats191/data/ames2000_NAfix.csv`
+
+Key variables of interest:
+
+| Variable | Description |
+|----------|-------------|
+| SalePrice | Sale price of the property |
+| Gr.Liv.Area | Above grade (ground) living area square feet |
+| Bedroom.AbvGr | Number of bedrooms above grade |
+| Total.Bsmt.SF | Total square feet of basement area |
+:::
+
+### Setup: Split your data
+
+To begin, randomly split the data into two sets of equal size — 1000 for selecting a model, with a final 1000 for validation and reporting confidence intervals for the final effects. For reproducibility, pick and store an integer seed:
+
+```r
+set.seed(1)
+```
+
+### Project Description
+
+Your task is to build a model to predict `log(SalePrice)` based on the remaining variables. In addition, we want estimated effects for:
+
+1. Total square feet: `Gr.Liv.Area + Total.Bsmt.SF`
+2. Number of bedrooms: `Bedroom.AbvGr`
+
+**Beware:** the data set is large enough so simple stepwise model building procedures may be very slow.
+
+### Part 1: The study
+
+In this section, you should give a description of the study underlying the dataset.
+
+### Part 2: An initial model
+
+In this section, you should develop a first-pass model for the data that will allow you to answer some of the specific goals of the study. Fit the model on the first half of your 1000 points reserved for selection. Record the performance of your model on the remaining 1000 points for validation by computing:
+
+```r
+MSE <- sum(resid(initial.model)^2)
+```
+
+### Part 3: Selected model
+
+In this section, you can look at partial residual or added variable plots to search for non-linear effects. You can also consider any potential interactions. Use some of the diagnostic tools seen in class to assess the quality of fit of your selected model. Record the performance of your model on the remaining 1000 points for validation by computing:
+
+```r
+MSE <- sum(resid(selected.model)^2)
+```
+
+Is it much better than your initial model?
+
+### Part 4: Effects of interest
+
+Report an estimate of the effect of square footage and the number of bedrooms on your selected model. Use the 1000 points held for validation to report this effect. Include some measure of variability of the estimate, such as a confidence interval. Would you have gotten a very different answer if you had used your initial model instead of the selected model to estimate the effects?

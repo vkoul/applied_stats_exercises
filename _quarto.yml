@@ -1,0 +1,46 @@
+project:
+  type: book
+  output-dir: docs
+
+execute:
+  freeze: auto
+
+book:
+  title: "STATS 191: Applied Statistics Exercises"
+  author: "Stanford STATS 191"
+  date: today
+  chapters:
+    - index.qmd
+    - part: "Chapter 1: Two-Sample Tests & Permutation Tests"
+      chapters:
+        - ch1-two-sample-tests-key-ideas.qmd
+        - ch1-two-sample-tests-questions.qmd
+        - ch1-two-sample-tests-solutions.qmd
+    - part: "Chapter 2: Simple Linear Regression"
+      chapters:
+        - ch2-simple-linear-regression-key-ideas.qmd
+        - ch2-simple-linear-regression-questions.qmd
+        - ch2-simple-linear-regression-solutions.qmd
+    - part: "Chapter 3: Multiple Regression & Diagnostics"
+      chapters:
+        - ch3-multiple-regression-key-ideas.qmd
+        - ch3-multiple-regression-questions.qmd
+        - ch3-multiple-regression-solutions.qmd
+    - part: "Chapter 4: Model Selection & Logistic Regression"
+      chapters:
+        - ch4-model-selection-key-ideas.qmd
+        - ch4-model-selection-questions.qmd
+        - ch4-model-selection-solutions.qmd
+    - part: "Chapter 5: Final Project — Ames Housing"
+      chapters:
+        - ch5-logistic-regression-key-ideas.qmd
+        - ch5-logistic-regression-questions.qmd
+        - ch5-logistic-regression-solutions.qmd
+
+format:
+  html:
+    theme:
+      light: lux
+      dark: superhero
+    code-fold: false
+    code-tools: true

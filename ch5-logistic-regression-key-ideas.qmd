@@ -1,0 +1,49 @@
+# Key Ideas {.unnumbered}
+
+## Final Project: Complete Regression Analysis
+
+### Building a predictive model end-to-end
+
+The final project ties together all the skills from the course into one coherent analysis. Unlike the previous assignments (where each question is self-contained), this project requires you to make sequential decisions: each modeling choice affects the next.
+
+### The train/validation split
+
+Splitting data into a **selection** (training) set and a **validation** (test) set is fundamental to honest model evaluation:
+
+- **Selection set**: Use for fitting models, exploring transformations, choosing variables
+- **Validation set**: Use *only* for final performance evaluation and reporting effects
+
+This prevents overfitting — if you evaluate on the same data you used to choose the model, you'll be overly optimistic about performance.
+
+### Log transformation of the response
+
+When the response variable (e.g., sale price) is right-skewed and always positive, modeling `log(Y)` often works better:
+
+- Makes the distribution more symmetric
+- Stabilizes variance (expensive houses have larger residual variance)
+- Coefficients become interpretable as approximate percentage changes
+
+### Model building strategy
+
+A practical workflow for building a regression model:
+
+1. **Initial model**: Start with main effects for variables you expect to matter
+2. **Diagnostic plots**: Check residuals vs. fitted, Q-Q plot, leverage
+3. **Partial residual plots**: Look for non-linear effects to add (e.g., polynomial terms)
+4. **Interactions**: Consider whether the effect of one variable depends on another
+5. **Model selection**: Use stepwise, $C_p$, BIC, or cross-validation to trim
+6. **Validate**: Check MSE on held-out data
+
+### Reporting effects with uncertainty
+
+When reporting "the effect of X on Y," always include:
+
+- A point estimate (the coefficient or a predicted difference)
+- A measure of uncertainty (confidence interval)
+- The model context (which other variables are held constant)
+
+The same effect can look different depending on what else is in the model — report this honestly.
+
+### Connection to the exercises
+
+Assignment 5 asks you to predict log(SalePrice) for Ames housing data, building from an initial model through a selected model, evaluating via MSE on a validation set, and reporting effects of square footage and bedrooms with confidence intervals.
