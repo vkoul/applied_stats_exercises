@@ -68,8 +68,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./ch1-two-sample-tests-questions.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./ch4-model-selection-questions.html" rel="next">
+<link href="./ch3-multiple-regression-solutions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -315,7 +315,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Chapter 1: Two-Sample Tests &amp; Permutation Tests</a></li><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Key Ideas</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch4-model-selection-key-ideas.html">Chapter 4: Model Selection &amp; Logistic Regression</a></li><li class="breadcrumb-item"><a href="./ch4-model-selection-key-ideas.html">Key Ideas</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -360,7 +360,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1-two-sample-tests-key-ideas.html" class="sidebar-item-text sidebar-link active">
+  <a href="./ch1-two-sample-tests-key-ideas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Key Ideas</span></a>
   </div>
 </li>
@@ -447,7 +447,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4-model-selection-key-ideas.html" class="sidebar-item-text sidebar-link">
+  <a href="./ch4-model-selection-key-ideas.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Key Ideas</span></a>
   </div>
 </li>
@@ -504,14 +504,16 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#two-sample-tests-permutation-tests" id="toc-two-sample-tests-permutation-tests" class="nav-link active" data-scroll-target="#two-sample-tests-permutation-tests">Two-Sample Tests &amp; Permutation Tests</a>
+  <li><a href="#model-selection" id="toc-model-selection" class="nav-link active" data-scroll-target="#model-selection">Model Selection</a>
   <ul class="collapse">
-  <li><a href="#when-to-compare-two-groups" id="toc-when-to-compare-two-groups" class="nav-link" data-scroll-target="#when-to-compare-two-groups">When to compare two groups</a></li>
-  <li><a href="#the-two-sample-t-test" id="toc-the-two-sample-t-test" class="nav-link" data-scroll-target="#the-two-sample-t-test">The two-sample t-test</a></li>
-  <li><a href="#one-sided-vs.-two-sided-tests" id="toc-one-sided-vs.-two-sided-tests" class="nav-link" data-scroll-target="#one-sided-vs.-two-sided-tests">One-sided vs.&nbsp;two-sided tests</a></li>
-  <li><a href="#permutation-tests-randomization-tests" id="toc-permutation-tests-randomization-tests" class="nav-link" data-scroll-target="#permutation-tests-randomization-tests">Permutation tests (randomization tests)</a></li>
-  <li><a href="#the-sign-test" id="toc-the-sign-test" class="nav-link" data-scroll-target="#the-sign-test">The sign test</a></li>
-  <li><a href="#one-way-anova" id="toc-one-way-anova" class="nav-link" data-scroll-target="#one-way-anova">One-way ANOVA</a></li>
+  <li><a href="#the-bias-variance-tradeoff" id="toc-the-bias-variance-tradeoff" class="nav-link" data-scroll-target="#the-bias-variance-tradeoff">The bias-variance tradeoff</a></li>
+  <li><a href="#information-criteria" id="toc-information-criteria" class="nav-link" data-scroll-target="#information-criteria">Information criteria</a></li>
+  <li><a href="#cross-validation" id="toc-cross-validation" class="nav-link" data-scroll-target="#cross-validation">Cross-validation</a></li>
+  <li><a href="#stepwise-selection" id="toc-stepwise-selection" class="nav-link" data-scroll-target="#stepwise-selection">Stepwise selection</a></li>
+  <li><a href="#penalized-regression-ridge-and-lasso" id="toc-penalized-regression-ridge-and-lasso" class="nav-link" data-scroll-target="#penalized-regression-ridge-and-lasso">Penalized regression (Ridge and LASSO)</a></li>
+  <li><a href="#interpreting-correlated-features" id="toc-interpreting-correlated-features" class="nav-link" data-scroll-target="#interpreting-correlated-features">Interpreting correlated features</a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic regression</a></li>
+  <li><a href="#data-splitting-for-inference-after-selection" id="toc-data-splitting-for-inference-after-selection" class="nav-link" data-scroll-target="#data-splitting-for-inference-after-selection">Data splitting for inference after selection</a></li>
   <li><a href="#connection-to-the-exercises" id="toc-connection-to-the-exercises" class="nav-link" data-scroll-target="#connection-to-the-exercises">Connection to the exercises</a></li>
   </ul></li>
   </ul>
@@ -521,7 +523,7 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Chapter 1: Two-Sample Tests &amp; Permutation Tests</a></li><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Key Ideas</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch4-model-selection-key-ideas.html">Chapter 4: Model Selection &amp; Logistic Regression</a></li><li class="breadcrumb-item"><a href="./ch4-model-selection-key-ideas.html">Key Ideas</a></li></ol></nav>
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Key Ideas</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
@@ -540,54 +542,85 @@ window.Quarto = {
 </header>
 
 
-<section id="two-sample-tests-permutation-tests" class="level2">
-<h2 class="anchored" data-anchor-id="two-sample-tests-permutation-tests">Two-Sample Tests &amp; Permutation Tests</h2>
-<section id="when-to-compare-two-groups" class="level3">
-<h3 class="anchored" data-anchor-id="when-to-compare-two-groups">When to compare two groups</h3>
-<p>The most basic statistical question is: <em>are these two groups different?</em> When we have a continuous outcome measured in two populations (e.g., room and board costs at private vs.&nbsp;public colleges), the two-sample t-test gives us a formal framework to answer this.</p>
-</section>
-<section id="the-two-sample-t-test" class="level3">
-<h3 class="anchored" data-anchor-id="the-two-sample-t-test">The two-sample t-test</h3>
-<p>The test compares two sample means and asks whether the difference is larger than we’d expect from random variation alone. The key assumptions are:</p>
+<section id="model-selection" class="level2">
+<h2 class="anchored" data-anchor-id="model-selection">Model Selection</h2>
+<section id="the-bias-variance-tradeoff" class="level3">
+<h3 class="anchored" data-anchor-id="the-bias-variance-tradeoff">The bias-variance tradeoff</h3>
+<p>Adding more predictors always reduces training error (RSS), but doesn’t always improve prediction on new data. This is the fundamental tradeoff:</p>
 <ul>
-<li>Observations are independent within and between groups</li>
-<li>Each group is approximately normally distributed (or samples are large enough for CLT)</li>
-<li>For the classic test: equal variances; for Welch’s test: variances can differ</li>
+<li><strong>Too few predictors</strong> (underfitting): high bias, the model misses real patterns</li>
+<li><strong>Too many predictors</strong> (overfitting): high variance, the model fits noise</li>
 </ul>
-<p><strong>When variances differ</strong>, use Welch’s t-test (the default in R’s <code>t.test()</code>). You can check with an F-test or simply by comparing the group standard deviations.</p>
+<p>Model selection methods try to find the sweet spot.</p>
 </section>
-<section id="one-sided-vs.-two-sided-tests" class="level3">
-<h3 class="anchored" data-anchor-id="one-sided-vs.-two-sided-tests">One-sided vs.&nbsp;two-sided tests</h3>
+<section id="information-criteria" class="level3">
+<h3 class="anchored" data-anchor-id="information-criteria">Information criteria</h3>
+<p>These add a penalty for model complexity to the training error:</p>
 <ul>
-<li><strong>Two-sided</strong>: <span class="math inline">\(H_0: \mu_1 = \mu_2\)</span> vs.&nbsp;<span class="math inline">\(H_a: \mu_1 \neq \mu_2\)</span></li>
-<li><strong>One-sided</strong>: <span class="math inline">\(H_0: \mu_1 \leq \mu_2\)</span> vs.&nbsp;<span class="math inline">\(H_a: \mu_1 &gt; \mu_2\)</span></li>
+<li><strong>AIC</strong> (Akaike): <span class="math inline">\(\text{AIC} = n\log(\text{RSS}/n) + 2p\)</span></li>
+<li><strong>BIC</strong> (Bayesian): <span class="math inline">\(\text{BIC} = n\log(\text{RSS}/n) + p\log(n)\)</span></li>
 </ul>
-<p>Use one-sided only when you have a directional hypothesis <em>before</em> seeing the data.</p>
+<p>BIC penalizes complexity more heavily (especially for large <span class="math inline">\(n\)</span>), so it tends to select simpler models. Lower values are better for both.</p>
 </section>
-<section id="permutation-tests-randomization-tests" class="level3">
-<h3 class="anchored" data-anchor-id="permutation-tests-randomization-tests">Permutation tests (randomization tests)</h3>
-<p>When normality assumptions are questionable (e.g., skewed distributions), permutation tests provide a non-parametric alternative:</p>
+<section id="cross-validation" class="level3">
+<h3 class="anchored" data-anchor-id="cross-validation">Cross-validation</h3>
+<p>Split data into training and validation sets to directly estimate prediction error:</p>
+<ul>
+<li><strong>K-fold CV</strong>: split data into <span class="math inline">\(K\)</span> folds, train on <span class="math inline">\(K-1\)</span>, predict the held-out fold, rotate</li>
+<li><strong>Leave-one-out CV (LOOCV)</strong>: <span class="math inline">\(K = n\)</span>, expensive but low bias</li>
+<li>Typical choice: <span class="math inline">\(K = 5\)</span> or <span class="math inline">\(K = 10\)</span></li>
+</ul>
+<p>Select the model with lowest average CV error.</p>
+</section>
+<section id="stepwise-selection" class="level3">
+<h3 class="anchored" data-anchor-id="stepwise-selection">Stepwise selection</h3>
+<p>Automated procedures that add or remove predictors sequentially:</p>
+<ul>
+<li><strong>Forward selection</strong>: start empty, add the best predictor at each step</li>
+<li><strong>Backward elimination</strong>: start full, remove the least useful predictor at each step</li>
+<li><strong>Both directions</strong>: combine forward and backward at each step</li>
+</ul>
+<p>Use AIC or BIC as the criterion. In R: <code>step(model, direction = "both")</code>.</p>
+</section>
+<section id="penalized-regression-ridge-and-lasso" class="level3">
+<h3 class="anchored" data-anchor-id="penalized-regression-ridge-and-lasso">Penalized regression (Ridge and LASSO)</h3>
+<p>Instead of selecting/dropping predictors, shrink coefficients toward zero:</p>
+<ul>
+<li><strong>Ridge</strong> (<span class="math inline">\(L_2\)</span> penalty): <span class="math inline">\(\sum (Y_i - \hat{Y}_i)^2 + \lambda \sum \beta_j^2\)</span> — shrinks but doesn’t zero out coefficients</li>
+<li><strong>LASSO</strong> (<span class="math inline">\(L_1\)</span> penalty): <span class="math inline">\(\sum (Y_i - \hat{Y}_i)^2 + \lambda \sum |\beta_j|\)</span> — can shrink coefficients exactly to zero (automatic variable selection)</li>
+<li><strong>Elastic Net</strong>: combines both penalties</li>
+</ul>
+<p>The tuning parameter <span class="math inline">\(\lambda\)</span> controls the strength of penalization. Choose by cross-validation.</p>
+</section>
+<section id="interpreting-correlated-features" class="level3">
+<h3 class="anchored" data-anchor-id="interpreting-correlated-features">Interpreting correlated features</h3>
+<p>When predictors are correlated, dropping one can change the coefficients of others dramatically. Model selection results should be interpreted cautiously: the “best” model depends on the criterion, and different criteria may select different models.</p>
+</section>
+<section id="logistic-regression" class="level3">
+<h3 class="anchored" data-anchor-id="logistic-regression">Logistic regression</h3>
+<p>When the response is binary (0/1), logistic regression models the log-odds:</p>
+<p><span class="math display">\[\log\left(\frac{p(X)}{1 - p(X)}\right) = \beta_0 + \beta_1 X_1 + \cdots + \beta_p X_p\]</span></p>
+<p>Key points:</p>
+<ul>
+<li>Coefficients are changes in <strong>log-odds</strong>, not probabilities directly</li>
+<li><span class="math inline">\(e^{\beta_j}\)</span> gives the <strong>odds ratio</strong> for a one-unit increase in <span class="math inline">\(X_j\)</span></li>
+<li>Use <code>glm(..., family = binomial)</code> in R</li>
+<li>Model selection (e.g., forward <code>step</code>) applies the same way as in linear regression</li>
+</ul>
+</section>
+<section id="data-splitting-for-inference-after-selection" class="level3">
+<h3 class="anchored" data-anchor-id="data-splitting-for-inference-after-selection">Data splitting for inference after selection</h3>
+<p>When you select a model using the data, the p-values from that same data are no longer valid (they’re optimistically biased). A principled approach:</p>
 <ol type="1">
-<li>Compute the observed test statistic (e.g., t-statistic)</li>
-<li>Shuffle the group labels many times (e.g., 10,000 permutations)</li>
-<li>Recompute the statistic each time to build a null distribution</li>
-<li>Compare the observed statistic to this null distribution</li>
+<li>Split data in half: one for model <strong>selection</strong>, one for <strong>inference</strong></li>
+<li>Use the selection half for stepwise/variable selection</li>
+<li>Refit the chosen model on the inference half</li>
+<li>Report p-values and confidence intervals from the inference fit</li>
 </ol>
-<p>The p-value is the proportion of permuted statistics as extreme as (or more extreme than) the observed one. This approach makes no distributional assumptions — it directly tests whether the group labels matter.</p>
-</section>
-<section id="the-sign-test" class="level3">
-<h3 class="anchored" data-anchor-id="the-sign-test">The sign test</h3>
-<p>The sign test is the simplest non-parametric test. For testing whether a distribution is symmetric around zero (or whether positive outcomes are as likely as negative), count the number of positive observations and compare to the Binomial(n, 0.5) distribution. It requires no assumptions about the shape of the distribution.</p>
-</section>
-<section id="one-way-anova" class="level3">
-<h3 class="anchored" data-anchor-id="one-way-anova">One-way ANOVA</h3>
-<p>When comparing more than two groups, the one-way ANOVA extends the two-sample t-test:</p>
-<p><span class="math display">\[F = \frac{\text{Between-group variability}}{\text{Within-group variability}}\]</span></p>
-<p>Under <span class="math inline">\(H_0\)</span> (all group means are equal), <span class="math inline">\(F\)</span> follows an F-distribution. A large F indicates that at least one group mean differs. The log-transformation is often useful when the original data is skewed.</p>
 </section>
 <section id="connection-to-the-exercises" class="level3">
 <h3 class="anchored" data-anchor-id="connection-to-the-exercises">Connection to the exercises</h3>
-<p>Assignment 1 covers the full spectrum of group comparison methods: Question 1 uses the standard t-test on <code>Room.Board</code>; Question 2 introduces the permutation test for <code>Top10perc</code>; Question 3 applies the sign test to fund manager returns using the Binomial distribution; and Question 4 uses one-way ANOVA (with simulation) for wages across marital status categories.</p>
+<p>Assignment 4 asks you to: (Q1) explore multicollinearity with simulated correlated features and examine outliers/leverage; (Q2) apply model selection (adjusted <span class="math inline">\(R^2\)</span>, <span class="math inline">\(C_p\)</span>, forward <code>step</code>) to the Carseats data; (Q3) fit logistic regression to Wage data and use data splitting for honest inference after model selection.</p>
 
 
 <!-- -->
@@ -1062,67 +1095,97 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./ch3-multiple-regression-solutions.html" class="pagination-link" aria-label="Solutions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Solutions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ch1-two-sample-tests-questions.html" class="pagination-link" aria-label="Questions">
+      <a href="./ch4-model-selection-questions.html" class="pagination-link" aria-label="Questions">
         <span class="nav-page-text">Questions</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Key Ideas {.unnumbered}</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Two-Sample Tests &amp; Permutation Tests</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model Selection</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### When to compare two groups</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### The bias-variance tradeoff</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>The most basic statistical question is: *are these two groups different?* When we have a continuous outcome measured in two populations (e.g., room and board costs at private vs. public colleges), the two-sample t-test gives us a formal framework to answer this.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Adding more predictors always reduces training error (RSS), but doesn't always improve prediction on new data. This is the fundamental tradeoff:</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### The two-sample t-test</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>The test compares two sample means and asks whether the difference is larger than we'd expect from random variation alone. The key assumptions are:</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Observations are independent within and between groups</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each group is approximately normally distributed (or samples are large enough for CLT)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For the classic test: equal variances; for Welch's test: variances can differ</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**When variances differ**, use Welch's t-test (the default in R's <span class="in">`t.test()`</span>). You can check with an F-test or simply by comparing the group standard deviations.</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">### One-sided vs. two-sided tests</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Too few predictors** (underfitting): high bias, the model misses real patterns</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Too many predictors** (overfitting): high variance, the model fits noise</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Model selection methods try to find the sweet spot.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">### Information criteria</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>These add a penalty for model complexity to the training error:</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**AIC** (Akaike): $\text{AIC} = n\log(\text{RSS}/n) + 2p$</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**BIC** (Bayesian): $\text{BIC} = n\log(\text{RSS}/n) + p\log(n)$</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Two-sided**: $H_0: \mu_1 = \mu_2$ vs. $H_a: \mu_1 \neq \mu_2$</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**One-sided**: $H_0: \mu_1 \leq \mu_2$ vs. $H_a: \mu_1 &gt; \mu_2$</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Use one-sided only when you have a directional hypothesis *before* seeing the data.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Permutation tests (randomization tests)</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>When normality assumptions are questionable (e.g., skewed distributions), permutation tests provide a non-parametric alternative:</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute the observed test statistic (e.g., t-statistic)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Shuffle the group labels many times (e.g., 10,000 permutations)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Recompute the statistic each time to build a null distribution</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Compare the observed statistic to this null distribution</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>BIC penalizes complexity more heavily (especially for large $n$), so it tends to select simpler models. Lower values are better for both.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cross-validation</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Split data into training and validation sets to directly estimate prediction error:</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**K-fold CV**: split data into $K$ folds, train on $K-1$, predict the held-out fold, rotate</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Leave-one-out CV (LOOCV)**: $K = n$, expensive but low bias</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Typical choice: $K = 5$ or $K = 10$</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Select the model with lowest average CV error.</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">### Stepwise selection</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>The p-value is the proportion of permuted statistics as extreme as (or more extreme than) the observed one. This approach makes no distributional assumptions — it directly tests whether the group labels matter.</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>Automated procedures that add or remove predictors sequentially:</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### The sign test</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>The sign test is the simplest non-parametric test. For testing whether a distribution is symmetric around zero (or whether positive outcomes are as likely as negative), count the number of positive observations and compare to the Binomial(n, 0.5) distribution. It requires no assumptions about the shape of the distribution.</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Forward selection**: start empty, add the best predictor at each step</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Backward elimination**: start full, remove the least useful predictor at each step</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Both directions**: combine forward and backward at each step</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### One-way ANOVA</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>Use AIC or BIC as the criterion. In R: <span class="in">`step(model, direction = "both")`</span>.</span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>When comparing more than two groups, the one-way ANOVA extends the two-sample t-test:</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">### Penalized regression (Ridge and LASSO)</span></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>$$F = \frac{\text{Between-group variability}}{\text{Within-group variability}}$$</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>Instead of selecting/dropping predictors, shrink coefficients toward zero:</span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Under $H_0$ (all group means are equal), $F$ follows an F-distribution. A large F indicates that at least one group mean differs. The log-transformation is often useful when the original data is skewed.</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### Connection to the exercises</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Ridge** ($L_2$ penalty): $\sum (Y_i - \hat{Y}_i)^2 + \lambda \sum \beta_j^2$ — shrinks but doesn't zero out coefficients</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**LASSO** ($L_1$ penalty): $\sum (Y_i - \hat{Y}_i)^2 + \lambda \sum |\beta_j|$ — can shrink coefficients exactly to zero (automatic variable selection)</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Elastic Net**: combines both penalties</span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>Assignment 1 covers the full spectrum of group comparison methods: Question 1 uses the standard t-test on <span class="in">`Room.Board`</span>; Question 2 introduces the permutation test for <span class="in">`Top10perc`</span>; Question 3 applies the sign test to fund manager returns using the Binomial distribution; and Question 4 uses one-way ANOVA (with simulation) for wages across marital status categories.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>The tuning parameter $\lambda$ controls the strength of penalization. Choose by cross-validation.</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interpreting correlated features</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>When predictors are correlated, dropping one can change the coefficients of others dramatically. Model selection results should be interpreted cautiously: the "best" model depends on the criterion, and different criteria may select different models.</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="fu">### Logistic regression</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>When the response is binary (0/1), logistic regression models the log-odds:</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>$$\log\left(\frac{p(X)}{1 - p(X)}\right) = \beta_0 + \beta_1 X_1 + \cdots + \beta_p X_p$$</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>Key points:</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Coefficients are changes in **log-odds**, not probabilities directly</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$e^{\beta_j}$ gives the **odds ratio** for a one-unit increase in $X_j$</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use <span class="in">`glm(..., family = binomial)`</span> in R</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Model selection (e.g., forward <span class="in">`step`</span>) applies the same way as in linear regression</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data splitting for inference after selection</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>When you select a model using the data, the p-values from that same data are no longer valid (they're optimistically biased). A principled approach:</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Split data in half: one for model **selection**, one for **inference**</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Use the selection half for stepwise/variable selection</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Refit the chosen model on the inference half</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Report p-values and confidence intervals from the inference fit</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="fu">### Connection to the exercises</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>Assignment 4 asks you to: (Q1) explore multicollinearity with simulated correlated features and examine outliers/leverage; (Q2) apply model selection (adjusted $R^2$, $C_p$, forward <span class="in">`step`</span>) to the Carseats data; (Q3) fit logistic regression to Wage data and use data splitting for honest inference after model selection.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

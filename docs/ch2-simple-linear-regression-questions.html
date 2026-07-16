@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Key Ideas – STATS 191: Applied Statistics Exercises</title>
+<title>Questions – STATS 191: Applied Statistics Exercises</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -68,8 +68,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./ch1-two-sample-tests-questions.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./ch2-simple-linear-regression-solutions.html" rel="next">
+<link href="./ch2-simple-linear-regression-key-ideas.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -315,7 +315,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Chapter 1: Two-Sample Tests &amp; Permutation Tests</a></li><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Key Ideas</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch2-simple-linear-regression-key-ideas.html">Chapter 2: Simple Linear Regression</a></li><li class="breadcrumb-item"><a href="./ch2-simple-linear-regression-questions.html">Questions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -360,7 +360,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1-two-sample-tests-key-ideas.html" class="sidebar-item-text sidebar-link active">
+  <a href="./ch1-two-sample-tests-key-ideas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Key Ideas</span></a>
   </div>
 </li>
@@ -395,7 +395,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-simple-linear-regression-questions.html" class="sidebar-item-text sidebar-link">
+  <a href="./ch2-simple-linear-regression-questions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Questions</span></a>
   </div>
 </li>
@@ -504,15 +504,12 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#two-sample-tests-permutation-tests" id="toc-two-sample-tests-permutation-tests" class="nav-link active" data-scroll-target="#two-sample-tests-permutation-tests">Two-Sample Tests &amp; Permutation Tests</a>
+  <li><a href="#assignment-2-simple-linear-regression" id="toc-assignment-2-simple-linear-regression" class="nav-link active" data-scroll-target="#assignment-2-simple-linear-regression">Assignment 2: Simple Linear Regression</a>
   <ul class="collapse">
-  <li><a href="#when-to-compare-two-groups" id="toc-when-to-compare-two-groups" class="nav-link" data-scroll-target="#when-to-compare-two-groups">When to compare two groups</a></li>
-  <li><a href="#the-two-sample-t-test" id="toc-the-two-sample-t-test" class="nav-link" data-scroll-target="#the-two-sample-t-test">The two-sample t-test</a></li>
-  <li><a href="#one-sided-vs.-two-sided-tests" id="toc-one-sided-vs.-two-sided-tests" class="nav-link" data-scroll-target="#one-sided-vs.-two-sided-tests">One-sided vs.&nbsp;two-sided tests</a></li>
-  <li><a href="#permutation-tests-randomization-tests" id="toc-permutation-tests-randomization-tests" class="nav-link" data-scroll-target="#permutation-tests-randomization-tests">Permutation tests (randomization tests)</a></li>
-  <li><a href="#the-sign-test" id="toc-the-sign-test" class="nav-link" data-scroll-target="#the-sign-test">The sign test</a></li>
-  <li><a href="#one-way-anova" id="toc-one-way-anova" class="nav-link" data-scroll-target="#one-way-anova">One-way ANOVA</a></li>
-  <li><a href="#connection-to-the-exercises" id="toc-connection-to-the-exercises" class="nav-link" data-scroll-target="#connection-to-the-exercises">Connection to the exercises</a></li>
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -521,9 +518,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Chapter 1: Two-Sample Tests &amp; Permutation Tests</a></li><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Key Ideas</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch2-simple-linear-regression-key-ideas.html">Chapter 2: Simple Linear Regression</a></li><li class="breadcrumb-item"><a href="./ch2-simple-linear-regression-questions.html">Questions</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Key Ideas</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Questions</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -540,54 +537,132 @@ window.Quarto = {
 </header>
 
 
-<section id="two-sample-tests-permutation-tests" class="level2">
-<h2 class="anchored" data-anchor-id="two-sample-tests-permutation-tests">Two-Sample Tests &amp; Permutation Tests</h2>
-<section id="when-to-compare-two-groups" class="level3">
-<h3 class="anchored" data-anchor-id="when-to-compare-two-groups">When to compare two groups</h3>
-<p>The most basic statistical question is: <em>are these two groups different?</em> When we have a continuous outcome measured in two populations (e.g., room and board costs at private vs.&nbsp;public colleges), the two-sample t-test gives us a formal framework to answer this.</p>
+<section id="assignment-2-simple-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-2-simple-linear-regression">Assignment 2: Simple Linear Regression</h2>
+<p><em>Source: <a href="https://web.stanford.edu/class/stats191/assignments/assignment2.html">Assignment 2</a></em></p>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Dataset: NewspapersData.txt">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Dataset: NewspapersData.txt
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In order to investigate the feasibility of starting a Sunday edition for a large metropolitan newspaper, information was obtained from a sample of 34 newspapers concerning their daily and Sunday circulation (in thousands). The data are in the file <code>NewspapersData.txt</code>.</p>
+<p>Download: <code>https://web.stanford.edu/class/stats191/data/NewspapersData.txt</code></p>
+</div>
+</div>
+</div>
+<p><strong>(a)</strong> Load the data into R (use <code>read.table</code> rather than <code>read.csv</code>) and use a separator <code>'\t'</code>.</p>
+<p><strong>(b)</strong> Construct a scatter plot of Sunday circulation versus daily circulation. Does the plot suggest a linear relationship between daily and Sunday circulation? Do you think this is a plausible relationship?</p>
+<p><strong>(c)</strong> Fit a regression line predicting Sunday circulation from daily circulation and add the regression line to the plot in (b). State the equation of the estimated regression line.</p>
+<p><strong>(d)</strong> Obtain 95% confidence intervals for <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. Do this in two ways: using the function <code>confint</code> and using the <code>summary</code> of your fitted model. Check that the answers match.</p>
+<p><strong>(e)</strong> An industry veteran says: “I bet that if you increase daily circulation by 100, you’ll see an increase of more than 100 in Sunday circulation.” Test this (one-sided) hypothesis at level 5% using this data. State your hypothesis, test statistic and conclusion.</p>
+<p><strong>(f)</strong> What proportion of the variability in Sunday circulation is accounted for by daily circulation?</p>
+<p><strong>(g)</strong> Provide an interval estimate (based on 95% level) for the average Sunday circulation of newspapers with daily circulation of 500,000.</p>
+<p><strong>(h)</strong> The particular newspaper that is considering a Sunday edition has a daily circulation of 500,000. Provide an interval estimate (based on 95% level) for the Sunday circulation of this paper. How does this interval differ from that given in (g)?</p>
 </section>
-<section id="the-two-sample-t-test" class="level3">
-<h3 class="anchored" data-anchor-id="the-two-sample-t-test">The two-sample t-test</h3>
-<p>The test compares two sample means and asks whether the difference is larger than we’d expect from random variation alone. The key assumptions are:</p>
-<ul>
-<li>Observations are independent within and between groups</li>
-<li>Each group is approximately normally distributed (or samples are large enough for CLT)</li>
-<li>For the classic test: equal variances; for Welch’s test: variances can differ</li>
-</ul>
-<p><strong>When variances differ</strong>, use Welch’s t-test (the default in R’s <code>t.test()</code>). You can check with an F-test or simply by comparing the group standard deviations.</p>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Dataset: Tomasetti.csv">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Dataset: Tomasetti.csv
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The article by Tomasetti and Vogelstein attempts to explain why cancer incidence varies drastically across tissues (e.g., why one is much more likely to develop lung cancer rather than pelvic bone cancer). The authors show that a higher average lifetime risk for a cancer in a given tissue correlates with the rate of replication of stem cells in that tissue. The dataset contains information about 31 tumour types.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lscd</td>
+<td>Lifetime stem cell divisions — total number of stem cell divisions during the average lifetime</td>
+</tr>
+<tr class="even">
+<td>Risk</td>
+<td>Lifetime risk for cancer of that tissue type</td>
+</tr>
+</tbody>
+</table>
+<p>Download: <code>https://web.stanford.edu/class/stats191/data/Tomasetti.csv</code></p>
+</div>
+</div>
+</div>
+<p><strong>(a)</strong> Fit a simple linear regression model to the data with <code>log(Risk)</code> as the dependent variable and <code>log(Lscd)</code> as the independent variable. Plot the estimated regression line.</p>
+<p><strong>(b)</strong> Add upper and lower 95% prediction bands for the regression line on the plot, using <code>predict</code>. That is, produce one line for the upper limit of each interval over a sequence of densities, and one line for the lower limits of the intervals. Interpret these bands at an <code>Lscd</code> of <span class="math inline">\(10^{10}\)</span>.</p>
+<p><strong>(c)</strong> Test whether the slope in this regression is equal to 0 at level <span class="math inline">\(\alpha = 0.05\)</span>. State the null hypothesis, the alternative, the conclusion and the p-value.</p>
+<p><strong>(d)</strong> Give a 95% confidence interval for the slope of the regression line. Interpret your interval.</p>
+<p><strong>(e)</strong> Report the <span class="math inline">\(R^2\)</span> and the adjusted <span class="math inline">\(R^2\)</span> of the model, as well as an estimate of the variance of the errors in the model.</p>
+<p><strong>(f)</strong> Provide an interpretation of the <span class="math inline">\(R^2\)</span> you calculated above. According to a Reuters article: “Plain old bad luck plays a major role in determining who gets cancer and who does not, according to researchers who found that two-thirds of cancer incidence of various types can be blamed on random mutations and not heredity or risky habits like smoking.” Is this interpretation of <span class="math inline">\(R^2\)</span> correct?</p>
 </section>
-<section id="one-sided-vs.-two-sided-tests" class="level3">
-<h3 class="anchored" data-anchor-id="one-sided-vs.-two-sided-tests">One-sided vs.&nbsp;two-sided tests</h3>
-<ul>
-<li><strong>Two-sided</strong>: <span class="math inline">\(H_0: \mu_1 = \mu_2\)</span> vs.&nbsp;<span class="math inline">\(H_a: \mu_1 \neq \mu_2\)</span></li>
-<li><strong>One-sided</strong>: <span class="math inline">\(H_0: \mu_1 \leq \mu_2\)</span> vs.&nbsp;<span class="math inline">\(H_a: \mu_1 &gt; \mu_2\)</span></li>
-</ul>
-<p>Use one-sided only when you have a directional hypothesis <em>before</em> seeing the data.</p>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
+<p>Let <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> denote variables in a simple linear regression of <span class="math inline">\(Y\)</span> on <span class="math inline">\(X\)</span> that you’ve run for part of your research in your honors thesis. Suppose the model <span class="math inline">\(Y = \beta_0 + \beta_1 X + \varepsilon\)</span> satisfies the usual regression assumptions.</p>
+<p>The table below is a table similar to the output of <code>anova</code> when passed a simple linear regression model.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Df</th>
+<th>Sum Sq</th>
+<th>Mean Sq</th>
+<th>F value</th>
+<th>Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>X</td>
+<td>1</td>
+<td>492</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>Residuals</td>
+<td>32</td>
+<td>NA</td>
+<td>119</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>(a)</strong> Compute the missing values in the above table.</p>
+<p><strong>(b)</strong> Test the null hypothesis <span class="math inline">\(H_0: \beta_1 = 0\)</span> at level <span class="math inline">\(\alpha = 0.05\)</span> using the above table. Can you test the hypothesis <span class="math inline">\(H_0: \beta_1 = 1\)</span>?</p>
+<p><strong>(c)</strong> Compute the <span class="math inline">\(R^2\)</span> for this simple linear regression.</p>
+<p><strong>(d)</strong> If <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> were reversed in the above regression, what would you expect <span class="math inline">\(R^2\)</span> to be?</p>
 </section>
-<section id="permutation-tests-randomization-tests" class="level3">
-<h3 class="anchored" data-anchor-id="permutation-tests-randomization-tests">Permutation tests (randomization tests)</h3>
-<p>When normality assumptions are questionable (e.g., skewed distributions), permutation tests provide a non-parametric alternative:</p>
-<ol type="1">
-<li>Compute the observed test statistic (e.g., t-statistic)</li>
-<li>Shuffle the group labels many times (e.g., 10,000 permutations)</li>
-<li>Recompute the statistic each time to build a null distribution</li>
-<li>Compare the observed statistic to this null distribution</li>
-</ol>
-<p>The p-value is the proportion of permuted statistics as extreme as (or more extreme than) the observed one. This approach makes no distributional assumptions — it directly tests whether the group labels matter.</p>
-</section>
-<section id="the-sign-test" class="level3">
-<h3 class="anchored" data-anchor-id="the-sign-test">The sign test</h3>
-<p>The sign test is the simplest non-parametric test. For testing whether a distribution is symmetric around zero (or whether positive outcomes are as likely as negative), count the number of positive observations and compare to the Binomial(n, 0.5) distribution. It requires no assumptions about the shape of the distribution.</p>
-</section>
-<section id="one-way-anova" class="level3">
-<h3 class="anchored" data-anchor-id="one-way-anova">One-way ANOVA</h3>
-<p>When comparing more than two groups, the one-way ANOVA extends the two-sample t-test:</p>
-<p><span class="math display">\[F = \frac{\text{Between-group variability}}{\text{Within-group variability}}\]</span></p>
-<p>Under <span class="math inline">\(H_0\)</span> (all group means are equal), <span class="math inline">\(F\)</span> follows an F-distribution. A large F indicates that at least one group mean differs. The log-transformation is often useful when the original data is skewed.</p>
-</section>
-<section id="connection-to-the-exercises" class="level3">
-<h3 class="anchored" data-anchor-id="connection-to-the-exercises">Connection to the exercises</h3>
-<p>Assignment 1 covers the full spectrum of group comparison methods: Question 1 uses the standard t-test on <code>Room.Board</code>; Question 2 introduces the permutation test for <code>Top10perc</code>; Question 3 applies the sign test to fund manager returns using the Binomial distribution; and Question 4 uses one-way ANOVA (with simulation) for wages across marital status categories.</p>
+<section id="question-4" class="level3">
+<h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
+<p>Consider the <code>Wage</code> data we saw in Assignment 1.</p>
+<p><strong>(a)</strong> Fit a linear model of <code>wage</code> on <code>age</code>. At a 5% level, is there evidence for a linear relationship between wage and age? Would you characterize the evidence as strong or weak?</p>
+<p><strong>(b)</strong> What proportion of the variation in <code>wage</code> is explained by <code>age</code>? Is this a large amount of the total variation? Does this contradict your characterization of the evidence in (a)? Explain.</p>
+<p><strong>(c)</strong> Based on the usual diagnostic plots as discussed in the textbook, does this model seem adequate?</p>
+<p><strong>(d)</strong> Consider adding a quadratic term to the fit by using the formula <code>wage ~ poly(age, 2)</code> in fitting <code>lm</code>. Does this model explain appreciably more variation than your initial model?</p>
+<p><strong>(e)</strong> Replot the diagnostics you used in (c) for this model. Have any of them changed appreciably?</p>
 
 
 <!-- -->
@@ -1062,67 +1137,103 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./ch2-simple-linear-regression-key-ideas.html" class="pagination-link" aria-label="Key Ideas">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Key Ideas</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ch1-two-sample-tests-questions.html" class="pagination-link" aria-label="Questions">
-        <span class="nav-page-text">Questions</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./ch2-simple-linear-regression-solutions.html" class="pagination-link" aria-label="Solutions">
+        <span class="nav-page-text">Solutions</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Key Ideas {.unnumbered}</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Questions {.unnumbered}</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Two-Sample Tests &amp; Permutation Tests</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Assignment 2: Simple Linear Regression</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### When to compare two groups</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>*Source: [Assignment 2](https://web.stanford.edu/class/stats191/assignments/assignment2.html)*</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>The most basic statistical question is: *are these two groups different?* When we have a continuous outcome measured in two populations (e.g., room and board costs at private vs. public colleges), the two-sample t-test gives us a formal framework to answer this.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">### Question 1</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### The two-sample t-test</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>The test compares two sample means and asks whether the difference is larger than we'd expect from random variation alone. The key assumptions are:</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Observations are independent within and between groups</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each group is approximately normally distributed (or samples are large enough for CLT)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For the classic test: equal variances; for Welch's test: variances can differ</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true" title="Dataset: NewspapersData.txt"}</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>In order to investigate the feasibility of starting a Sunday edition for a large metropolitan newspaper, information was obtained from a sample of 34 newspapers concerning their daily and Sunday circulation (in thousands). The data are in the file <span class="in">`NewspapersData.txt`</span>.</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Download: <span class="in">`https://web.stanford.edu/class/stats191/data/NewspapersData.txt`</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>**(a)** Load the data into R (use <span class="in">`read.table`</span> rather than <span class="in">`read.csv`</span>) and use a separator <span class="in">`'\t'`</span>.</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**When variances differ**, use Welch's t-test (the default in R's <span class="in">`t.test()`</span>). You can check with an F-test or simply by comparing the group standard deviations.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**(b)** Construct a scatter plot of Sunday circulation versus daily circulation. Does the plot suggest a linear relationship between daily and Sunday circulation? Do you think this is a plausible relationship?</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">### One-sided vs. two-sided tests</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>**(c)** Fit a regression line predicting Sunday circulation from daily circulation and add the regression line to the plot in (b). State the equation of the estimated regression line.</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Two-sided**: $H_0: \mu_1 = \mu_2$ vs. $H_a: \mu_1 \neq \mu_2$</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**One-sided**: $H_0: \mu_1 \leq \mu_2$ vs. $H_a: \mu_1 &gt; \mu_2$</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Use one-sided only when you have a directional hypothesis *before* seeing the data.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Permutation tests (randomization tests)</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>When normality assumptions are questionable (e.g., skewed distributions), permutation tests provide a non-parametric alternative:</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute the observed test statistic (e.g., t-statistic)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Shuffle the group labels many times (e.g., 10,000 permutations)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Recompute the statistic each time to build a null distribution</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Compare the observed statistic to this null distribution</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>The p-value is the proportion of permuted statistics as extreme as (or more extreme than) the observed one. This approach makes no distributional assumptions — it directly tests whether the group labels matter.</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### The sign test</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>The sign test is the simplest non-parametric test. For testing whether a distribution is symmetric around zero (or whether positive outcomes are as likely as negative), count the number of positive observations and compare to the Binomial(n, 0.5) distribution. It requires no assumptions about the shape of the distribution.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>**(d)** Obtain 95% confidence intervals for $\beta_0$ and $\beta_1$. Do this in two ways: using the function <span class="in">`confint`</span> and using the <span class="in">`summary`</span> of your fitted model. Check that the answers match.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>**(e)** An industry veteran says: "I bet that if you increase daily circulation by 100, you'll see an increase of more than 100 in Sunday circulation." Test this (one-sided) hypothesis at level 5% using this data. State your hypothesis, test statistic and conclusion.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>**(f)** What proportion of the variability in Sunday circulation is accounted for by daily circulation?</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>**(g)** Provide an interval estimate (based on 95% level) for the average Sunday circulation of newspapers with daily circulation of 500,000.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>**(h)** The particular newspaper that is considering a Sunday edition has a daily circulation of 500,000. Provide an interval estimate (based on 95% level) for the Sunday circulation of this paper. How does this interval differ from that given in (g)?</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### Question 2</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true" title="Dataset: Tomasetti.csv"}</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>The article by Tomasetti and Vogelstein attempts to explain why cancer incidence varies drastically across tissues (e.g., why one is much more likely to develop lung cancer rather than pelvic bone cancer). The authors show that a higher average lifetime risk for a cancer in a given tissue correlates with the rate of replication of stem cells in that tissue. The dataset contains information about 31 tumour types.</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variable <span class="pp">|</span> Description <span class="pp">|</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|-------------|</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Lscd <span class="pp">|</span> Lifetime stem cell divisions — total number of stem cell divisions during the average lifetime <span class="pp">|</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Risk <span class="pp">|</span> Lifetime risk for cancer of that tissue type <span class="pp">|</span></span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### One-way ANOVA</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>When comparing more than two groups, the one-way ANOVA extends the two-sample t-test:</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>$$F = \frac{\text{Between-group variability}}{\text{Within-group variability}}$$</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Under $H_0$ (all group means are equal), $F$ follows an F-distribution. A large F indicates that at least one group mean differs. The log-transformation is often useful when the original data is skewed.</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### Connection to the exercises</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>Assignment 1 covers the full spectrum of group comparison methods: Question 1 uses the standard t-test on <span class="in">`Room.Board`</span>; Question 2 introduces the permutation test for <span class="in">`Top10perc`</span>; Question 3 applies the sign test to fund manager returns using the Binomial distribution; and Question 4 uses one-way ANOVA (with simulation) for wages across marital status categories.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>Download: <span class="in">`https://web.stanford.edu/class/stats191/data/Tomasetti.csv`</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>**(a)** Fit a simple linear regression model to the data with <span class="in">`log(Risk)`</span> as the dependent variable and <span class="in">`log(Lscd)`</span> as the independent variable. Plot the estimated regression line.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>**(b)** Add upper and lower 95% prediction bands for the regression line on the plot, using <span class="in">`predict`</span>. That is, produce one line for the upper limit of each interval over a sequence of densities, and one line for the lower limits of the intervals. Interpret these bands at an <span class="in">`Lscd`</span> of $10^{10}$.</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>**(c)** Test whether the slope in this regression is equal to 0 at level $\alpha = 0.05$. State the null hypothesis, the alternative, the conclusion and the p-value.</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>**(d)** Give a 95% confidence interval for the slope of the regression line. Interpret your interval.</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>**(e)** Report the $R^2$ and the adjusted $R^2$ of the model, as well as an estimate of the variance of the errors in the model.</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>**(f)** Provide an interpretation of the $R^2$ you calculated above. According to a Reuters article: "Plain old bad luck plays a major role in determining who gets cancer and who does not, according to researchers who found that two-thirds of cancer incidence of various types can be blamed on random mutations and not heredity or risky habits like smoking." Is this interpretation of $R^2$ correct?</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="fu">### Question 3</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>Let $Y$ and $X$ denote variables in a simple linear regression of $Y$ on $X$ that you've run for part of your research in your honors thesis. Suppose the model $Y = \beta_0 + \beta_1 X + \varepsilon$ satisfies the usual regression assumptions.</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>The table below is a table similar to the output of <span class="in">`anova`</span> when passed a simple linear regression model.</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span> Df <span class="pp">|</span> Sum Sq <span class="pp">|</span> Mean Sq <span class="pp">|</span> F value <span class="pp">|</span> Pr(&gt;F) <span class="pp">|</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>--<span class="pp">|---|--------|---------|---------|--------|</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> X <span class="pp">|</span> 1 <span class="pp">|</span> 492 <span class="pp">|</span> NA <span class="pp">|</span> NA <span class="pp">|</span> NA <span class="pp">|</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Residuals <span class="pp">|</span> 32 <span class="pp">|</span> NA <span class="pp">|</span> 119 <span class="pp">|</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>**(a)** Compute the missing values in the above table.</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>**(b)** Test the null hypothesis $H_0: \beta_1 = 0$ at level $\alpha = 0.05$ using the above table. Can you test the hypothesis $H_0: \beta_1 = 1$?</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>**(c)** Compute the $R^2$ for this simple linear regression.</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>**(d)** If $Y$ and $X$ were reversed in the above regression, what would you expect $R^2$ to be?</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="fu">### Question 4</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>Consider the <span class="in">`Wage`</span> data we saw in Assignment 1.</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>**(a)** Fit a linear model of <span class="in">`wage`</span> on <span class="in">`age`</span>. At a 5% level, is there evidence for a linear relationship between wage and age? Would you characterize the evidence as strong or weak?</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>**(b)** What proportion of the variation in <span class="in">`wage`</span> is explained by <span class="in">`age`</span>? Is this a large amount of the total variation? Does this contradict your characterization of the evidence in (a)? Explain.</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>**(c)** Based on the usual diagnostic plots as discussed in the textbook, does this model seem adequate?</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>**(d)** Consider adding a quadratic term to the fit by using the formula <span class="in">`wage ~ poly(age, 2)`</span> in fitting <span class="in">`lm`</span>. Does this model explain appreciably more variation than your initial model?</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>**(e)** Replot the diagnostics you used in (c) for this model. Have any of them changed appreciably?</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

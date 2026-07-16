@@ -1,5 +1,55 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STATS 191: Applied Statistics Exercises",
+    "section": "",
+    "text": "Preface\nThis book contains exercises and solutions from STATS 191: Introduction to Applied Statistics at Stanford University.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#what-this-book-covers",
+    "href": "index.html#what-this-book-covers",
+    "title": "STATS 191: Applied Statistics Exercises",
+    "section": "What this book covers",
+    "text": "What this book covers\nThe course introduces statistical models used in the social and biological sciences, with emphasis on conceptual understanding and practical application using R. Topics include:\n\nTwo-sample tests and permutation tests\nSimple linear regression\nMultiple linear regression and diagnostics\nModel selection (AIC, BIC, cross-validation, penalized methods)\nLogistic regression",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#structure",
+    "href": "index.html#structure",
+    "title": "STATS 191: Applied Statistics Exercises",
+    "section": "Structure",
+    "text": "Structure\nEach chapter is organized into three sections:\n\nKey Ideas — Intuitive explanations of the concepts needed for the exercises\nQuestions — The assignment problems (reproduced from the course materials)\nSolutions — R code and interpretations",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#software",
+    "href": "index.html#software",
+    "title": "STATS 191: Applied Statistics Exercises",
+    "section": "Software",
+    "text": "Software\nAll analyses use R with the tidyverse ecosystem. Key packages include:\nlibrary(tidyverse)\nlibrary(ISLR)\nlibrary(broom)\nlibrary(car)\nlibrary(glmnet)",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#source",
+    "href": "index.html#source",
+    "title": "STATS 191: Applied Statistics Exercises",
+    "section": "Source",
+    "text": "Source\nBased on course materials from STATS 191 at Stanford University.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
     "objectID": "ch1-two-sample-tests-key-ideas.html",
     "href": "ch1-two-sample-tests-key-ideas.html",
     "title": "Key Ideas",
@@ -15,10 +65,318 @@
     "href": "ch1-two-sample-tests-key-ideas.html#two-sample-tests-permutation-tests",
     "title": "Key Ideas",
     "section": "",
-    "text": "When to compare two groups\nThe most basic statistical question is: are these two groups different? When we have a continuous outcome measured in two populations (e.g., room and board costs at private vs. public colleges), the two-sample t-test gives us a formal framework to answer this.\n\n\nThe two-sample t-test\nThe test compares two sample means and asks whether the difference is larger than we’d expect from random variation alone. The key assumptions are:\n\nObservations are independent within and between groups\nEach group is approximately normally distributed (or samples are large enough for CLT)\nFor the classic test: equal variances; for Welch’s test: variances can differ\n\nWhen variances differ, use Welch’s t-test (the default in R’s t.test()). You can check with an F-test or simply by comparing the group standard deviations.\n\n\nOne-sided vs. two-sided tests\n\nTwo-sided: \\(H_0: \\mu_1 = \\mu_2\\) vs. \\(H_a: \\mu_1 \\neq \\mu_2\\)\nOne-sided: \\(H_0: \\mu_1 \\leq \\mu_2\\) vs. \\(H_a: \\mu_1 &gt; \\mu_2\\)\n\nUse one-sided only when you have a directional hypothesis before seeing the data.\n\n\nPermutation tests (randomization tests)\nWhen normality assumptions are questionable (e.g., skewed distributions), permutation tests provide a non-parametric alternative:\n\nCompute the observed test statistic (e.g., t-statistic)\nShuffle the group labels many times (e.g., 10,000 permutations)\nRecompute the statistic each time to build a null distribution\nCompare the observed statistic to this null distribution\n\nThe p-value is the proportion of permuted statistics as extreme as (or more extreme than) the observed one. This approach makes no distributional assumptions — it directly tests whether the group labels matter.\n\n\nConnection to the exercises\nIn Assignment 1, you’ll apply these ideas to the College dataset: comparing room/board costs and top-10% enrollment between private and public colleges. Question 1 uses the standard t-test (justified by approximate normality), while Question 2 introduces the permutation approach when the distribution is skewed.",
+    "text": "When to compare two groups\nThe most basic statistical question is: are these two groups different? When we have a continuous outcome measured in two populations (e.g., room and board costs at private vs. public colleges), the two-sample t-test gives us a formal framework to answer this.\n\n\nThe two-sample t-test\nThe test compares two sample means and asks whether the difference is larger than we’d expect from random variation alone. The key assumptions are:\n\nObservations are independent within and between groups\nEach group is approximately normally distributed (or samples are large enough for CLT)\nFor the classic test: equal variances; for Welch’s test: variances can differ\n\nWhen variances differ, use Welch’s t-test (the default in R’s t.test()). You can check with an F-test or simply by comparing the group standard deviations.\n\n\nOne-sided vs. two-sided tests\n\nTwo-sided: \\(H_0: \\mu_1 = \\mu_2\\) vs. \\(H_a: \\mu_1 \\neq \\mu_2\\)\nOne-sided: \\(H_0: \\mu_1 \\leq \\mu_2\\) vs. \\(H_a: \\mu_1 &gt; \\mu_2\\)\n\nUse one-sided only when you have a directional hypothesis before seeing the data.\n\n\nPermutation tests (randomization tests)\nWhen normality assumptions are questionable (e.g., skewed distributions), permutation tests provide a non-parametric alternative:\n\nCompute the observed test statistic (e.g., t-statistic)\nShuffle the group labels many times (e.g., 10,000 permutations)\nRecompute the statistic each time to build a null distribution\nCompare the observed statistic to this null distribution\n\nThe p-value is the proportion of permuted statistics as extreme as (or more extreme than) the observed one. This approach makes no distributional assumptions — it directly tests whether the group labels matter.\n\n\nThe sign test\nThe sign test is the simplest non-parametric test. For testing whether a distribution is symmetric around zero (or whether positive outcomes are as likely as negative), count the number of positive observations and compare to the Binomial(n, 0.5) distribution. It requires no assumptions about the shape of the distribution.\n\n\nOne-way ANOVA\nWhen comparing more than two groups, the one-way ANOVA extends the two-sample t-test:\n\\[F = \\frac{\\text{Between-group variability}}{\\text{Within-group variability}}\\]\nUnder \\(H_0\\) (all group means are equal), \\(F\\) follows an F-distribution. A large F indicates that at least one group mean differs. The log-transformation is often useful when the original data is skewed.\n\n\nConnection to the exercises\nAssignment 1 covers the full spectrum of group comparison methods: Question 1 uses the standard t-test on Room.Board; Question 2 introduces the permutation test for Top10perc; Question 3 applies the sign test to fund manager returns using the Binomial distribution; and Question 4 uses one-way ANOVA (with simulation) for wages across marital status categories.",
     "crumbs": [
       "Chapter 1: Two-Sample Tests & Permutation Tests",
       "Key Ideas"
+    ]
+  },
+  {
+    "objectID": "ch1-two-sample-tests-questions.html",
+    "href": "ch1-two-sample-tests-questions.html",
+    "title": "Questions",
+    "section": "",
+    "text": "Assignment 1: Two-Sample Tests, Permutation Tests & ANOVA\nSource: Assignment 1",
+    "crumbs": [
+      "Chapter 1: Two-Sample Tests & Permutation Tests",
+      "Questions"
+    ]
+  },
+  {
+    "objectID": "ch1-two-sample-tests-questions.html#assignment-1-two-sample-tests-permutation-tests-anova",
+    "href": "ch1-two-sample-tests-questions.html#assignment-1-two-sample-tests-permutation-tests-anova",
+    "title": "Questions",
+    "section": "",
+    "text": "NoteDataset: College (ISLR2 package)\n\n\n\n\n\nThe College dataset from the ISLR2 package contains various statistics for a large number of US colleges from the 1995 issue of US News and World Report.\n\n\n\n\n\n\n\nVariable\nDescription\n\n\n\n\nPrivate\nFactor: Yes/No indicator of private college\n\n\nRoom.Board\nRoom and board costs\n\n\nTop10perc\nPercent of new students from top 10% of high school class\n\n\n(many others)\nSee ?College for full list\n\n\n\n\n\n\n\nQuestion 1\nInstall the package ISLR2 using install.packages(\"ISLR2\"). We’ll use the College data set for this problem. In particular, we want to compare the cost of room and board between private and public colleges.\n(a) Draw a boxplot of Room.Board stratified by Private. Similarly, plot histograms of the two samples.\n(b) Based on the histograms, do you think the two-sample t-test is justified here?\n(c) Carry out the two-sample t-test comparing Room.Board between private and public colleges.\n(d) Suppose we wished to test whether the average Room.Board at private colleges is greater than at public colleges. Carry out this one-sided test.\n\n\nQuestion 2\nIn this problem, we’ll repeat the analysis above using Top10perc rather than Room.Board. We’ll also simulate the distribution of the t-statistic for comparing Top10perc between public and private colleges under the null hypothesis that there is no difference.\n(a) Repeat the steps above swapping Top10perc for Room.Board. Do the histograms have a normal shape?\n(b) Compute the two-sample t-statistic comparing Top10perc among private and public colleges by saving the $statistic attribute of the object returned by t.test.\n(c) We’ll create a sample of 10,000 draws of the t-statistic based on random permutations of the data. Randomly shuffle the Private vector 10,000 times, and recompute the two-sample t-test statistic, storing the values in a vector of length 10,000.\n(d) Create a histogram of the 10,000 statistics. Does its shape seem similar to that of the t-distribution used to compute the p-value?\n(e) Compute a p-value by computing the proportion of your 10,000 statistics that are larger in absolute value than your observed t-statistic. Is it close to the p-value you found by using t.test?\n\n\nQuestion 3: Sign Test\n\n\n\n\n\n\nNoteDataset: Fund (ISLR2 package)\n\n\n\n\n\nThe Fund dataset from ISLR2 contains (simulated) returns for different fund managers over 50 months. If fund managers are unable to really beat the market, we expect that they will have positive returns as frequently as negative returns. This is our null hypothesis.\n\n\n\n(a) For Manager14, compute the signs of their 50 returns and store the number of months with positive returns as our statistic.\n(b) For 10,000 reps, draw 50 standard normals (mean 0, variance 1) using rnorm(50) and compute the number of positive entries as a test statistic. Plot a histogram of your results using the argument breaks=1:50.\n(c) Instead of normal random variables, repeat (b) with uniform random variables which have a distribution symmetric around 0.5. That is, for 10,000 reps, simulate 50 uniform random variables with runif(50) and store the number greater than 0.5 as a test statistic. Does it look the same as (b)? Why? Explain why the distribution from (b) is a good way to evaluate evidence against our null hypothesis about Manager14.\n(d) Compute a p-value by computing the proportion of your 10,000 draws that have more positive draws than your observed number of positive months. Is this a 1-sided or 2-sided p-value? What is the null hypothesis here?\n(e) The distribution of the number of positive standard normals out of 50 is the Binomial distribution with parameters (50, 1/2). Its true histogram (i.e., its probability mass function, or pmf) can be computed with dbinom. Use barplot to make a barplot of the true histogram.\n(f) Compute the probability of observing at least as many positive standard normals as the number of positive return months for Manager14. You can do this by summing dbinom or using the cumulative distribution function pbinom.\n\n\nQuestion 4\n\n\n\n\n\n\nNoteDataset: Wage (ISLR2 package)\n\n\n\n\n\nThe Wage dataset from ISLR2 contains wage and other data for a group of 3000 male workers in the Mid-Atlantic region.\n\n\n\nVariable\nDescription\n\n\n\n\nwage\nWorker’s wage\n\n\nlogwage\nLog of wage\n\n\nmaritl\nMarital status (5 levels)\n\n\n\n\n\n\n(a) Make a boxplot of wage ~ maritl (marital status). Inspect histograms for the 5 different values of maritl. Do the histograms have a normal shape?\n(b) Repeat (a) for logwage.\n(c) Fit the one-way ANOVA model logwage ~ maritl. Test the null hypothesis that there is no difference in wages based on the marital status of the 3000 men.\n(d) Construct a 95% confidence interval for the difference between the wage of widowed men and those never married.\n(e) Suppose you wanted to not rely on the p-value from the F test as provided by your one-way model in (c). How might you simulate a distribution to test the null hypothesis that the wage distribution doesn’t depend on marital status?\n(f) Compute a p-value by simulation using your answer to (e).",
+    "crumbs": [
+      "Chapter 1: Two-Sample Tests & Permutation Tests",
+      "Questions"
+    ]
+  },
+  {
+    "objectID": "ch1-two-sample-tests-solutions.html",
+    "href": "ch1-two-sample-tests-solutions.html",
+    "title": "Solutions",
+    "section": "",
+    "text": "Assignment 1: Two-Sample Tests & Permutation Tests\nlibrary(tidyverse)\nlibrary(ISLR2)\ndata(\"College\")",
+    "crumbs": [
+      "Chapter 1: Two-Sample Tests & Permutation Tests",
+      "Solutions"
+    ]
+  },
+  {
+    "objectID": "ch1-two-sample-tests-solutions.html#assignment-1-two-sample-tests-permutation-tests",
+    "href": "ch1-two-sample-tests-solutions.html#assignment-1-two-sample-tests-permutation-tests",
+    "title": "Solutions",
+    "section": "",
+    "text": "Question 1: Room and Board Costs\n(a) Boxplot and histograms\n\nggplot(College, aes(y = Room.Board, x = Private, fill = Private)) +\n  geom_boxplot() +\n  ggtitle(\"Room and Board by Private/Public\")\n\n\n\n\n\n\n\n\n\nggplot(College, aes(x = Room.Board, fill = Private)) +\n  geom_histogram(alpha = 0.5, position = \"identity\", bins = 30) +\n  ggtitle(\"Room and Board by Private/Public\")\n\n\n\n\n\n\n\n\n(b) Is the t-test justified?\nThe histograms show approximately normal distributions for both groups, with similar shapes. The two-sample t-test is justified here.\n(c) Two-sample t-test\n\nCollege %&gt;%\n  group_by(Private) %&gt;%\n  summarize(\n    mean = mean(Room.Board),\n    sd = sd(Room.Board),\n    n = n()\n  )\n\n# A tibble: 2 × 4\n  Private  mean    sd     n\n  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;\n1 No      3748.  858.   212\n2 Yes     4586. 1090.   565\n\n\n\nt.test(Room.Board ~ Private, data = College)\n\n\n    Welch Two Sample t-test\n\ndata:  Room.Board by Private\nt = -11.222, df = 478.09, p-value &lt; 2.2e-16\nalternative hypothesis: true difference in means between group No and group Yes is not equal to 0\n95 percent confidence interval:\n -984.6203 -691.1853\nsample estimates:\n mean in group No mean in group Yes \n         3748.241          4586.143 \n\n\nThe variances differ between groups, so we use the Welch t-test (R’s default). The p-value is very small, indicating a significant difference in room and board costs between private and public colleges.\n(d) One-sided test\n\nt.test(Room.Board ~ Private, data = College, alternative = \"greater\")\n\n\n    Welch Two Sample t-test\n\ndata:  Room.Board by Private\nt = -11.222, df = 478.09, p-value = 1\nalternative hypothesis: true difference in means between group No and group Yes is greater than 0\n95 percent confidence interval:\n -960.9587       Inf\nsample estimates:\n mean in group No mean in group Yes \n         3748.241          4586.143 \n\n\n\n\nQuestion 2: Top 10 Percent & Permutation Test\n(a) Boxplots and histograms\n\nggplot(College, aes(y = Top10perc, x = Private, fill = Private)) +\n  geom_boxplot() +\n  ggtitle(\"Top10perc by Private/Public\")\n\n\n\n\n\n\n\n\n\nggplot(College, aes(x = Top10perc, fill = Private)) +\n  geom_histogram(alpha = 0.5, position = \"identity\", bins = 30) +\n  ggtitle(\"Top10perc by Private/Public\")\n\n\n\n\n\n\n\n\n(b) Observed t-statistic\n\nCollege %&gt;%\n  group_by(Private) %&gt;%\n  summarize(\n    mean = mean(Top10perc),\n    sd = sd(Top10perc)\n  )\n\n# A tibble: 2 × 3\n  Private  mean    sd\n  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt;\n1 No       22.8  16.2\n2 Yes      29.3  17.9\n\n\n\nobserved_t &lt;- t.test(Top10perc ~ Private, data = College)$statistic\nobserved_t\n\n        t \n-4.843284 \n\n\n(c) Normality assessment\nThe histograms show right-skewed distributions, particularly for private colleges. The normality assumption is not well-satisfied. A permutation test is a better alternative since it makes no distributional assumptions.\n(d) Permutation test\n\nset.seed(191)\nn_iterations &lt;- 10000\nt_stat_shuffle &lt;- numeric(n_iterations)\n\nfor (i in 1:n_iterations) {\n  shuffled_private &lt;- sample(College$Private)\n  t_stat_shuffle[i] &lt;- t.test(Top10perc ~ shuffled_private, data = College)$statistic\n}\n\n\nggplot(data.frame(t = t_stat_shuffle), aes(x = t)) +\n  geom_histogram(bins = 50, fill = \"steelblue\", alpha = 0.7) +\n  geom_vline(xintercept = observed_t, color = \"red\", linewidth = 1) +\n  ggtitle(\"Permutation Null Distribution vs. Observed t-statistic\") +\n  labs(x = \"t-statistic\", y = \"Count\")\n\n\n\n\n\n\n\n\n\nperm_pvalue &lt;- mean(abs(t_stat_shuffle) &gt;= abs(observed_t))\ncat(\"Permutation p-value:\", perm_pvalue, \"\\n\")\n\nPermutation p-value: 0 \n\n\nThe permutation p-value confirms the parametric result: there is a significant difference in Top10perc between private and public colleges, and this conclusion holds without assuming normality.\n\n\nQuestion 3: Sign Test\n(a)\n\ndata(\"Fund\")\nmanager14_returns &lt;- Fund$Manager14\nn_positive &lt;- sum(manager14_returns &gt; 0)\ncat(\"Number of positive months for Manager14:\", n_positive, \"out of 50\\n\")\n\nNumber of positive months for Manager14: 31 out of 50\n\n\n(b)\n(c)\n(d)\n(e)\n(f)\n\n\nQuestion 4: One-Way ANOVA\n(a)\n\ndata(\"Wage\")\n\n(b)\n(c)\n(d)\n(e)\n(f)",
+    "crumbs": [
+      "Chapter 1: Two-Sample Tests & Permutation Tests",
+      "Solutions"
+    ]
+  },
+  {
+    "objectID": "ch2-simple-linear-regression-key-ideas.html",
+    "href": "ch2-simple-linear-regression-key-ideas.html",
+    "title": "Key Ideas",
+    "section": "",
+    "text": "Simple Linear Regression",
+    "crumbs": [
+      "Chapter 2: Simple Linear Regression",
+      "Key Ideas"
+    ]
+  },
+  {
+    "objectID": "ch2-simple-linear-regression-key-ideas.html#simple-linear-regression",
+    "href": "ch2-simple-linear-regression-key-ideas.html#simple-linear-regression",
+    "title": "Key Ideas",
+    "section": "",
+    "text": "The model\nSimple linear regression models the relationship between a single predictor \\(X\\) and a response \\(Y\\):\n\\[Y_i = \\beta_0 + \\beta_1 X_i + \\varepsilon_i, \\quad \\varepsilon_i \\sim N(0, \\sigma^2)\\]\n\n\\(\\beta_0\\) (intercept): the expected value of \\(Y\\) when \\(X = 0\\)\n\\(\\beta_1\\) (slope): the expected change in \\(Y\\) for a one-unit increase in \\(X\\)\n\\(\\varepsilon_i\\): random error, assumed independent and normally distributed\n\n\n\nEstimation by least squares\nThe least squares estimates \\(\\hat{\\beta}_0\\) and \\(\\hat{\\beta}_1\\) minimize the sum of squared residuals:\n\\[\\text{RSS} = \\sum_{i=1}^n (Y_i - \\hat{Y}_i)^2\\]\nThe slope has a closed-form solution:\n\\[\\hat{\\beta}_1 = \\frac{\\sum (X_i - \\bar{X})(Y_i - \\bar{Y})}{\\sum (X_i - \\bar{X})^2} = r_{XY} \\cdot \\frac{s_Y}{s_X}\\]\n\n\nInference\n\nt-test for slope: \\(H_0: \\beta_1 = 0\\) tests whether \\(X\\) has any linear relationship with \\(Y\\)\nConfidence interval: \\(\\hat{\\beta}_1 \\pm t^* \\cdot SE(\\hat{\\beta}_1)\\)\nPrediction interval: wider than confidence interval because it accounts for both estimation uncertainty and individual variability\n\n\n\n\\(R^2\\) and model fit\n\\(R^2\\) is the proportion of variance in \\(Y\\) explained by the model:\n\\[R^2 = 1 - \\frac{\\text{RSS}}{\\text{TSS}} = r_{XY}^2\\]\nIn simple regression, \\(R^2\\) equals the square of the correlation coefficient.\n\n\nDiagnostics\nCheck assumptions by examining residuals:\n\nLinearity: residuals vs. fitted values should show no pattern\nNormality: Q-Q plot of residuals should be approximately linear\nConstant variance (homoscedasticity): spread of residuals should be uniform\nIndependence: no structure in residual ordering\n\n\n\nConnection to the exercises\nAssignment 2 applies simple linear regression to real datasets, asking you to fit models, interpret coefficients, construct confidence and prediction intervals, and check assumptions via residual plots.",
+    "crumbs": [
+      "Chapter 2: Simple Linear Regression",
+      "Key Ideas"
+    ]
+  },
+  {
+    "objectID": "ch2-simple-linear-regression-questions.html",
+    "href": "ch2-simple-linear-regression-questions.html",
+    "title": "Questions",
+    "section": "",
+    "text": "Assignment 2: Simple Linear Regression\nSource: Assignment 2",
+    "crumbs": [
+      "Chapter 2: Simple Linear Regression",
+      "Questions"
+    ]
+  },
+  {
+    "objectID": "ch2-simple-linear-regression-questions.html#assignment-2-simple-linear-regression",
+    "href": "ch2-simple-linear-regression-questions.html#assignment-2-simple-linear-regression",
+    "title": "Questions",
+    "section": "",
+    "text": "Question 1\n\n\n\n\n\n\nNoteDataset: NewspapersData.txt\n\n\n\n\n\nIn order to investigate the feasibility of starting a Sunday edition for a large metropolitan newspaper, information was obtained from a sample of 34 newspapers concerning their daily and Sunday circulation (in thousands). The data are in the file NewspapersData.txt.\nDownload: https://web.stanford.edu/class/stats191/data/NewspapersData.txt\n\n\n\n(a) Load the data into R (use read.table rather than read.csv) and use a separator '\\t'.\n(b) Construct a scatter plot of Sunday circulation versus daily circulation. Does the plot suggest a linear relationship between daily and Sunday circulation? Do you think this is a plausible relationship?\n(c) Fit a regression line predicting Sunday circulation from daily circulation and add the regression line to the plot in (b). State the equation of the estimated regression line.\n(d) Obtain 95% confidence intervals for \\(\\beta_0\\) and \\(\\beta_1\\). Do this in two ways: using the function confint and using the summary of your fitted model. Check that the answers match.\n(e) An industry veteran says: “I bet that if you increase daily circulation by 100, you’ll see an increase of more than 100 in Sunday circulation.” Test this (one-sided) hypothesis at level 5% using this data. State your hypothesis, test statistic and conclusion.\n(f) What proportion of the variability in Sunday circulation is accounted for by daily circulation?\n(g) Provide an interval estimate (based on 95% level) for the average Sunday circulation of newspapers with daily circulation of 500,000.\n(h) The particular newspaper that is considering a Sunday edition has a daily circulation of 500,000. Provide an interval estimate (based on 95% level) for the Sunday circulation of this paper. How does this interval differ from that given in (g)?\n\n\nQuestion 2\n\n\n\n\n\n\nNoteDataset: Tomasetti.csv\n\n\n\n\n\nThe article by Tomasetti and Vogelstein attempts to explain why cancer incidence varies drastically across tissues (e.g., why one is much more likely to develop lung cancer rather than pelvic bone cancer). The authors show that a higher average lifetime risk for a cancer in a given tissue correlates with the rate of replication of stem cells in that tissue. The dataset contains information about 31 tumour types.\n\n\n\n\n\n\n\nVariable\nDescription\n\n\n\n\nLscd\nLifetime stem cell divisions — total number of stem cell divisions during the average lifetime\n\n\nRisk\nLifetime risk for cancer of that tissue type\n\n\n\nDownload: https://web.stanford.edu/class/stats191/data/Tomasetti.csv\n\n\n\n(a) Fit a simple linear regression model to the data with log(Risk) as the dependent variable and log(Lscd) as the independent variable. Plot the estimated regression line.\n(b) Add upper and lower 95% prediction bands for the regression line on the plot, using predict. That is, produce one line for the upper limit of each interval over a sequence of densities, and one line for the lower limits of the intervals. Interpret these bands at an Lscd of \\(10^{10}\\).\n(c) Test whether the slope in this regression is equal to 0 at level \\(\\alpha = 0.05\\). State the null hypothesis, the alternative, the conclusion and the p-value.\n(d) Give a 95% confidence interval for the slope of the regression line. Interpret your interval.\n(e) Report the \\(R^2\\) and the adjusted \\(R^2\\) of the model, as well as an estimate of the variance of the errors in the model.\n(f) Provide an interpretation of the \\(R^2\\) you calculated above. According to a Reuters article: “Plain old bad luck plays a major role in determining who gets cancer and who does not, according to researchers who found that two-thirds of cancer incidence of various types can be blamed on random mutations and not heredity or risky habits like smoking.” Is this interpretation of \\(R^2\\) correct?\n\n\nQuestion 3\nLet \\(Y\\) and \\(X\\) denote variables in a simple linear regression of \\(Y\\) on \\(X\\) that you’ve run for part of your research in your honors thesis. Suppose the model \\(Y = \\beta_0 + \\beta_1 X + \\varepsilon\\) satisfies the usual regression assumptions.\nThe table below is a table similar to the output of anova when passed a simple linear regression model.\n\n\n\n\nDf\nSum Sq\nMean Sq\nF value\nPr(&gt;F)\n\n\n\n\nX\n1\n492\nNA\nNA\nNA\n\n\nResiduals\n32\nNA\n119\n\n\n\n\n\n(a) Compute the missing values in the above table.\n(b) Test the null hypothesis \\(H_0: \\beta_1 = 0\\) at level \\(\\alpha = 0.05\\) using the above table. Can you test the hypothesis \\(H_0: \\beta_1 = 1\\)?\n(c) Compute the \\(R^2\\) for this simple linear regression.\n(d) If \\(Y\\) and \\(X\\) were reversed in the above regression, what would you expect \\(R^2\\) to be?\n\n\nQuestion 4\nConsider the Wage data we saw in Assignment 1.\n(a) Fit a linear model of wage on age. At a 5% level, is there evidence for a linear relationship between wage and age? Would you characterize the evidence as strong or weak?\n(b) What proportion of the variation in wage is explained by age? Is this a large amount of the total variation? Does this contradict your characterization of the evidence in (a)? Explain.\n(c) Based on the usual diagnostic plots as discussed in the textbook, does this model seem adequate?\n(d) Consider adding a quadratic term to the fit by using the formula wage ~ poly(age, 2) in fitting lm. Does this model explain appreciably more variation than your initial model?\n(e) Replot the diagnostics you used in (c) for this model. Have any of them changed appreciably?",
+    "crumbs": [
+      "Chapter 2: Simple Linear Regression",
+      "Questions"
+    ]
+  },
+  {
+    "objectID": "ch2-simple-linear-regression-solutions.html",
+    "href": "ch2-simple-linear-regression-solutions.html",
+    "title": "Solutions",
+    "section": "",
+    "text": "Assignment 2: Simple Linear Regression\nlibrary(tidyverse)\nlibrary(broom)",
+    "crumbs": [
+      "Chapter 2: Simple Linear Regression",
+      "Solutions"
+    ]
+  },
+  {
+    "objectID": "ch2-simple-linear-regression-solutions.html#assignment-2-simple-linear-regression",
+    "href": "ch2-simple-linear-regression-solutions.html#assignment-2-simple-linear-regression",
+    "title": "Solutions",
+    "section": "",
+    "text": "Question 1\n(a)\n(b)\n(c)\n(d)\n\n\nQuestion 2\n(a)\n(b)\n(c)\n(d)",
+    "crumbs": [
+      "Chapter 2: Simple Linear Regression",
+      "Solutions"
+    ]
+  },
+  {
+    "objectID": "ch3-multiple-regression-key-ideas.html",
+    "href": "ch3-multiple-regression-key-ideas.html",
+    "title": "Key Ideas",
+    "section": "",
+    "text": "Multiple Regression & Diagnostics",
+    "crumbs": [
+      "Chapter 3: Multiple Regression & Diagnostics",
+      "Key Ideas"
+    ]
+  },
+  {
+    "objectID": "ch3-multiple-regression-key-ideas.html#multiple-regression-diagnostics",
+    "href": "ch3-multiple-regression-key-ideas.html#multiple-regression-diagnostics",
+    "title": "Key Ideas",
+    "section": "",
+    "text": "Extending to multiple predictors\nMultiple linear regression models a response as a linear function of \\(p\\) predictors:\n\\[Y_i = \\beta_0 + \\beta_1 X_{i1} + \\beta_2 X_{i2} + \\cdots + \\beta_p X_{ip} + \\varepsilon_i\\]\nIn matrix form: \\(\\mathbf{Y} = \\mathbf{X}\\boldsymbol{\\beta} + \\boldsymbol{\\varepsilon}\\)\nThe least squares solution is:\n\\[\\hat{\\boldsymbol{\\beta}} = (\\mathbf{X}^T\\mathbf{X})^{-1}\\mathbf{X}^T\\mathbf{Y}\\]\n\n\nInterpreting coefficients\nEach \\(\\beta_j\\) represents the expected change in \\(Y\\) for a one-unit increase in \\(X_j\\), holding all other predictors constant. This “all else equal” interpretation is crucial and differs from the simple regression slope.\n\n\nAdjusted \\(R^2\\)\nUnlike \\(R^2\\), adjusted \\(R^2\\) penalizes for adding predictors that don’t improve the model:\n\\[R^2_{\\text{adj}} = 1 - \\frac{(1-R^2)(n-1)}{n-p-1}\\]\nIt can decrease when adding irrelevant predictors.\n\n\nF-test for overall significance\nTests whether any predictor has a relationship with \\(Y\\):\n\\[H_0: \\beta_1 = \\beta_2 = \\cdots = \\beta_p = 0\\]\n\\[F = \\frac{(\\text{TSS} - \\text{RSS})/p}{\\text{RSS}/(n-p-1)}\\]\n\n\nMulticollinearity\nWhen predictors are correlated, individual coefficient estimates become unstable (large standard errors) even if the overall model fits well. Diagnose with:\n\nVariance Inflation Factor (VIF): \\(\\text{VIF}_j = \\frac{1}{1-R^2_j}\\) where \\(R^2_j\\) is from regressing \\(X_j\\) on all other predictors. VIF &gt; 5-10 is concerning.\nCorrelation matrix of predictors\n\n\n\nDiagnostics and influence\n\nLeverage (\\(h_{ii}\\)): measures how unusual an observation’s predictor values are. High leverage points can be influential.\nCook’s distance: combines leverage and residual size to measure overall influence on all fitted values.\nResidual plots: residuals vs. fitted, residuals vs. each predictor, Q-Q plot, scale-location plot.\n\n\n\nCategorical predictors\nCategorical variables enter the model as dummy/indicator variables. A factor with \\(k\\) levels needs \\(k-1\\) dummy variables. The coefficients represent differences from the reference (baseline) level.\n\n\nConnection to the exercises\nAssignment 3 asks you to fit multiple regression models, interpret coefficients in the presence of other predictors, diagnose multicollinearity, identify influential observations, and assess model assumptions.",
+    "crumbs": [
+      "Chapter 3: Multiple Regression & Diagnostics",
+      "Key Ideas"
+    ]
+  },
+  {
+    "objectID": "ch3-multiple-regression-questions.html",
+    "href": "ch3-multiple-regression-questions.html",
+    "title": "Questions",
+    "section": "",
+    "text": "Assignment 3: Multiple Regression & Diagnostics\nSource: Assignment 3",
+    "crumbs": [
+      "Chapter 3: Multiple Regression & Diagnostics",
+      "Questions"
+    ]
+  },
+  {
+    "objectID": "ch3-multiple-regression-questions.html#assignment-3-multiple-regression-diagnostics",
+    "href": "ch3-multiple-regression-questions.html#assignment-3-multiple-regression-diagnostics",
+    "title": "Questions",
+    "section": "",
+    "text": "Question 1\nWe revisit Tomasetti’s and Vogelstein’s study on cancer incidence across tissues from Assignment 2. The second part of their paper deals with the existence of two clusters in the dataset. According to the authors, D-tumours (D for deterministic) can be attributed to some degree to environmental and genetic factors, while the risk of R-tumours (R for replicative) is affected mainly by random mutations occurring during replication of stem cells.\n(a) The dataset also includes a column Cluster according to the classification of that tumour as Deterministic or Replicative. Fit a linear model as in Assignment 2, but with a different slope for D- and R-tumours.\n(b) Make a scatterplot including the two regression lines.\n(c) Conduct an F-test to compare the regression model above to the regression model which does not account for this classification. What is the p-value?\n\n\nQuestion 2\n\n\n\n\n\n\nNoteDataset: Carseats (ISLR2 package)\n\n\n\n\n\nThe Carseats dataset from ISLR2 contains simulated data about child car seat sales at 400 different stores.\n\n\n\nVariable\nDescription\n\n\n\n\nSales\nUnit sales (thousands)\n\n\nAdvertising\nLocal advertising budget (thousands)\n\n\nCompPrice\nPrice charged by competitor\n\n\nPrice\nPrice for car seats at each site\n\n\nUrban\nYes/No factor for urban location\n\n\nUS\nYes/No factor for US store\n\n\n\n\n\n\n(a) Fit a multiple regression model to predict Sales using Advertising, CompPrice, Price, Urban, and US.\n(b) Provide an interpretation of each coefficient in the model. Be careful — some of the variables in the model are categorical.\n(c) For which of the predictors can you reject the null hypothesis \\(H_0: \\beta_j = 0\\) at \\(\\alpha = 0.05\\)?\n(d) On the basis of the previous question, fit a smaller model that only uses the predictors for which there is evidence of association with the outcome.\n(e) How well do the models in parts (a) and (d) fit the data?\n(f) Using the model from part (d), obtain 90% confidence intervals for the coefficients.\n(g) Is there any evidence of outliers or high leverage observations in the model from part (d)?\n\n\nQuestion 3\n\n\n\n\n\n\nNoteDataset: state.x77 (built-in R dataset)\n\n\n\n\n\nThe dataset state.x77 in R contains the following statistics related to the 50 states in the USA:\n\n\n\nVariable\nDescription\n\n\n\n\nPopulation\nPopulation estimate (1975)\n\n\nIncome\nPer capita income (1974)\n\n\nIlliteracy\nIlliteracy (1970, percent of population)\n\n\nHS.Grad\nPercent high school graduates (1970)\n\n\n\nMake it into a data frame using: state.data &lt;- data.frame(state.x77)\n\n\n\nWe are interested in the relation between Income and the other 3 variables.\n(a) Produce a 4 by 4 scatter plot of the variables above.\n(b) Fit a multiple linear regression model to the data with Income as the outcome and Population, Illiteracy, HS.Grad as the independent variables.\n(c) For which of the predictors can you reject the null hypothesis \\(H_0: \\beta_j = 0\\) at \\(\\alpha = 0.05\\)?\n(d) Compare this model to one that uses only Population as a covariate.\n(e) Produce standard diagnostic plots of the multiple regression fit in part (b). Summarize the results.\n(f) Find states with outlying predictors by looking at the leverage values using hatvalues. Use a cutoff of 0.2.\n(g) Find outliers, if any, in the response. Remove them from the data and refit a multiple linear regression model and compare the result with the previous fit.\n\n\nQuestion 4\n\n\n\n\n\n\nNoteDataset: iris (built-in R dataset)\n\n\n\n\n\nThe iris dataset gives measurements in centimeters of sepal length, sepal width, petal length, and petal width for 50 flowers from each of 3 species of iris.\n\n\n\n(a) Fit a multiple linear regression model to the data with sepal length as the dependent variable and sepal width, petal length, and petal width as the independent variables.\n(b) Test the reduced model \\(H_0: \\beta_{\\text{sepal.width}} = \\beta_{\\text{petal.length}}\\) with an F-test at level \\(\\alpha = 0.05\\).\n(c) Test \\(H_0: \\beta_{\\text{sepal.width}} = -\\beta_{\\text{petal.length}}\\) at level \\(\\alpha = 0.05\\).\n(d) Test \\(H_0: \\beta_{\\text{sepal.width}} = \\beta_{\\text{petal.length}}\\) at level \\(\\alpha = 0.05\\).",
+    "crumbs": [
+      "Chapter 3: Multiple Regression & Diagnostics",
+      "Questions"
+    ]
+  },
+  {
+    "objectID": "ch3-multiple-regression-solutions.html",
+    "href": "ch3-multiple-regression-solutions.html",
+    "title": "Solutions",
+    "section": "",
+    "text": "Assignment 3: Multiple Regression & Diagnostics\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(car)",
+    "crumbs": [
+      "Chapter 3: Multiple Regression & Diagnostics",
+      "Solutions"
+    ]
+  },
+  {
+    "objectID": "ch3-multiple-regression-solutions.html#assignment-3-multiple-regression-diagnostics",
+    "href": "ch3-multiple-regression-solutions.html#assignment-3-multiple-regression-diagnostics",
+    "title": "Solutions",
+    "section": "",
+    "text": "Question 1\n(a)\n(b)\n(c)\n(d)\n\n\nQuestion 2\n(a)\n(b)\n(c)\n(d)",
+    "crumbs": [
+      "Chapter 3: Multiple Regression & Diagnostics",
+      "Solutions"
+    ]
+  },
+  {
+    "objectID": "ch4-model-selection-key-ideas.html",
+    "href": "ch4-model-selection-key-ideas.html",
+    "title": "Key Ideas",
+    "section": "",
+    "text": "Model Selection",
+    "crumbs": [
+      "Chapter 4: Model Selection & Logistic Regression",
+      "Key Ideas"
+    ]
+  },
+  {
+    "objectID": "ch4-model-selection-key-ideas.html#model-selection",
+    "href": "ch4-model-selection-key-ideas.html#model-selection",
+    "title": "Key Ideas",
+    "section": "",
+    "text": "The bias-variance tradeoff\nAdding more predictors always reduces training error (RSS), but doesn’t always improve prediction on new data. This is the fundamental tradeoff:\n\nToo few predictors (underfitting): high bias, the model misses real patterns\nToo many predictors (overfitting): high variance, the model fits noise\n\nModel selection methods try to find the sweet spot.\n\n\nInformation criteria\nThese add a penalty for model complexity to the training error:\n\nAIC (Akaike): \\(\\text{AIC} = n\\log(\\text{RSS}/n) + 2p\\)\nBIC (Bayesian): \\(\\text{BIC} = n\\log(\\text{RSS}/n) + p\\log(n)\\)\n\nBIC penalizes complexity more heavily (especially for large \\(n\\)), so it tends to select simpler models. Lower values are better for both.\n\n\nCross-validation\nSplit data into training and validation sets to directly estimate prediction error:\n\nK-fold CV: split data into \\(K\\) folds, train on \\(K-1\\), predict the held-out fold, rotate\nLeave-one-out CV (LOOCV): \\(K = n\\), expensive but low bias\nTypical choice: \\(K = 5\\) or \\(K = 10\\)\n\nSelect the model with lowest average CV error.\n\n\nStepwise selection\nAutomated procedures that add or remove predictors sequentially:\n\nForward selection: start empty, add the best predictor at each step\nBackward elimination: start full, remove the least useful predictor at each step\nBoth directions: combine forward and backward at each step\n\nUse AIC or BIC as the criterion. In R: step(model, direction = \"both\").\n\n\nPenalized regression (Ridge and LASSO)\nInstead of selecting/dropping predictors, shrink coefficients toward zero:\n\nRidge (\\(L_2\\) penalty): \\(\\sum (Y_i - \\hat{Y}_i)^2 + \\lambda \\sum \\beta_j^2\\) — shrinks but doesn’t zero out coefficients\nLASSO (\\(L_1\\) penalty): \\(\\sum (Y_i - \\hat{Y}_i)^2 + \\lambda \\sum |\\beta_j|\\) — can shrink coefficients exactly to zero (automatic variable selection)\nElastic Net: combines both penalties\n\nThe tuning parameter \\(\\lambda\\) controls the strength of penalization. Choose by cross-validation.\n\n\nInterpreting correlated features\nWhen predictors are correlated, dropping one can change the coefficients of others dramatically. Model selection results should be interpreted cautiously: the “best” model depends on the criterion, and different criteria may select different models.\n\n\nLogistic regression\nWhen the response is binary (0/1), logistic regression models the log-odds:\n\\[\\log\\left(\\frac{p(X)}{1 - p(X)}\\right) = \\beta_0 + \\beta_1 X_1 + \\cdots + \\beta_p X_p\\]\nKey points:\n\nCoefficients are changes in log-odds, not probabilities directly\n\\(e^{\\beta_j}\\) gives the odds ratio for a one-unit increase in \\(X_j\\)\nUse glm(..., family = binomial) in R\nModel selection (e.g., forward step) applies the same way as in linear regression\n\n\n\nData splitting for inference after selection\nWhen you select a model using the data, the p-values from that same data are no longer valid (they’re optimistically biased). A principled approach:\n\nSplit data in half: one for model selection, one for inference\nUse the selection half for stepwise/variable selection\nRefit the chosen model on the inference half\nReport p-values and confidence intervals from the inference fit\n\n\n\nConnection to the exercises\nAssignment 4 asks you to: (Q1) explore multicollinearity with simulated correlated features and examine outliers/leverage; (Q2) apply model selection (adjusted \\(R^2\\), \\(C_p\\), forward step) to the Carseats data; (Q3) fit logistic regression to Wage data and use data splitting for honest inference after model selection.",
+    "crumbs": [
+      "Chapter 4: Model Selection & Logistic Regression",
+      "Key Ideas"
+    ]
+  },
+  {
+    "objectID": "ch4-model-selection-questions.html",
+    "href": "ch4-model-selection-questions.html",
+    "title": "Questions",
+    "section": "",
+    "text": "Assignment 4: Model Selection & Logistic Regression\nSource: Assignment 4",
+    "crumbs": [
+      "Chapter 4: Model Selection & Logistic Regression",
+      "Questions"
+    ]
+  },
+  {
+    "objectID": "ch4-model-selection-questions.html#assignment-4-model-selection-logistic-regression",
+    "href": "ch4-model-selection-questions.html#assignment-4-model-selection-logistic-regression",
+    "title": "Questions",
+    "section": "",
+    "text": "Question 1: Interpreting parameters when features are correlated\nGenerate a simulated data set as follows:\nset.seed(1)\nX1 &lt;- runif(100)                       # uniformly distributed between 0 and 1\nX2 &lt;- 0.5 * X1 + rnorm(100) / 10      # slightly noisy version of X1\nY &lt;- 3 + 2 * X1 + 1 * X2 + 0.95 * rnorm(100)\n(a) Consider the data generated above and the model lm(Y ~ X1 + X2). What are the true \\(\\beta_0\\), \\(\\beta_1\\), \\(\\beta_2\\)? What is the true \\(\\sigma^2\\)?\n(b) Create a scatterplot with X1 on the X-axis and X2 on the Y-axis. What is the sample correlation of X1 and X2? (Use cor.)\n(c) Fit the model lm(Y ~ X1 + X2). At level 5%, can you reject the null hypothesis \\(H_0: \\beta_{X1} = 0\\)? How about the null hypothesis \\(H_0: \\beta_{X2} = 0\\)?\n(d) Fit the model lm(Y ~ X1). At level 5%, can you reject the null hypothesis \\(H_0: \\beta_{X1} = 0\\)? Next, fit the model lm(Y ~ X2). At level 5%, can you reject the null hypothesis \\(H_0: \\beta_{X2} = 0\\)?\n(e) Do the results of parts (c) and (d) contradict each other? Explain.\n(f) In this part, we’ll add a single point to the data set to explore outliers and high leverage. We’ll call a point an outlier if its residual is at least 3 in absolute value, and we’ll say a point has high leverage if its hatvalues score is at least 0.2. For each of the following, pick values for (X1, X2, Y):\n\nA. A point that would be an outlier relative to the other 100 points but not a point of high leverage.\nB. A point that would be a point of high leverage relative to the other 100 points but not an outlier.\nC. A point that would be both a point of high leverage and an outlier relative to the other 100 points.\n\n\n\nQuestion 2: Model selection for multiple linear regression\nUse the Carseats data we saw in Assignment 3 for this problem.\n(a) Fit a full model Sales ~ . to the data.\n(b) Extract the design matrix from your model in (a), discarding the column for the intercept.\n(c) Use leaps to select a model using adjusted \\(R^2\\) as a criterion, storing the 5 best models of each size.\n(d) Use leaps to select a model using Mallow’s \\(C_p\\) as a criterion, storing the 5 best models of each size.\n(e) Use step to select a model using direction=\"forward\", starting from Sales ~ 1 with the upper model being the model in (a). Do the models in (c), (d), and (e) agree?\n(f) Make a plot of \\(C_p\\) versus model size. Is your selected model clearly better than all others or are there other models of similar quality?\n\n\nQuestion 3: Logistic Regression\nConsider the Wage data we saw in Assignment 1.\n(a) Create an outcome variable high which is TRUE if wage &gt; 250 and FALSE otherwise.\n(b) Fit a logistic regression model (high ~ maritl + age + health + health_ins + education + race).\n(c) At a 5% level, test the null hypothesis that the effect of maritl is 0 in the model in part (b).\n(d) Split the data into two sets of equal size using this snippet of code to form a half for model selection and a second half for inference. Focus on students with at least HS education:\nset.seed(1)\natleast_HS &lt;- Wage$education != \"1. &lt; HS Grad\"\nselection &lt;- rep(TRUE, nrow(Wage))\nselection[sample(1:nrow(Wage), 0.5 * nrow(Wage), replace = FALSE)] &lt;- FALSE\ninference &lt;- !selection\nselection &lt;- selection & atleast_HS\ninference &lt;- inference & atleast_HS\n(e) Using subset-selection, select a model using forward selection with step, with the largest model being the model in (b). Call this model selected.glm.\n(f) Fit the same model selected in (e) on subset inference. Call this model split.glm. Compare the summary() of split.glm and selected.glm. In terms of overall significance of estimated effects, would your conclusions be very different between selected.glm and split.glm? Do any effects that were significant at level 5% in selected.glm switch to not significant in split.glm?",
+    "crumbs": [
+      "Chapter 4: Model Selection & Logistic Regression",
+      "Questions"
+    ]
+  },
+  {
+    "objectID": "ch4-model-selection-solutions.html",
+    "href": "ch4-model-selection-solutions.html",
+    "title": "Solutions",
+    "section": "",
+    "text": "Assignment 4: Model Selection & Logistic Regression\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(ISLR2)\nlibrary(leaps)",
+    "crumbs": [
+      "Chapter 4: Model Selection & Logistic Regression",
+      "Solutions"
+    ]
+  },
+  {
+    "objectID": "ch4-model-selection-solutions.html#assignment-4-model-selection-logistic-regression",
+    "href": "ch4-model-selection-solutions.html#assignment-4-model-selection-logistic-regression",
+    "title": "Solutions",
+    "section": "",
+    "text": "Question 1: Interpreting parameters when features are correlated\n(a)\n\nset.seed(1)\nX1 &lt;- runif(100)\nX2 &lt;- 0.5 * X1 + rnorm(100) / 10\nY &lt;- 3 + 2 * X1 + 1 * X2 + 0.95 * rnorm(100)\n\n(b)\n(c)\n(d)\n(e)\n(f)\n\n\nQuestion 2: Model selection for multiple linear regression\n(a)\n(b)\n(c)\n(d)\n(e)\n(f)\n\n\nQuestion 3: Logistic Regression\n(a)\n(b)\n(c)\n(d)\n(e)\n(f)",
+    "crumbs": [
+      "Chapter 4: Model Selection & Logistic Regression",
+      "Solutions"
+    ]
+  },
+  {
+    "objectID": "ch5-logistic-regression-key-ideas.html",
+    "href": "ch5-logistic-regression-key-ideas.html",
+    "title": "Key Ideas",
+    "section": "",
+    "text": "Final Project: Complete Regression Analysis",
+    "crumbs": [
+      "Chapter 5: Final Project — Ames Housing",
+      "Key Ideas"
+    ]
+  },
+  {
+    "objectID": "ch5-logistic-regression-key-ideas.html#final-project-complete-regression-analysis",
+    "href": "ch5-logistic-regression-key-ideas.html#final-project-complete-regression-analysis",
+    "title": "Key Ideas",
+    "section": "",
+    "text": "Building a predictive model end-to-end\nThe final project ties together all the skills from the course into one coherent analysis. Unlike the previous assignments (where each question is self-contained), this project requires you to make sequential decisions: each modeling choice affects the next.\n\n\nThe train/validation split\nSplitting data into a selection (training) set and a validation (test) set is fundamental to honest model evaluation:\n\nSelection set: Use for fitting models, exploring transformations, choosing variables\nValidation set: Use only for final performance evaluation and reporting effects\n\nThis prevents overfitting — if you evaluate on the same data you used to choose the model, you’ll be overly optimistic about performance.\n\n\nLog transformation of the response\nWhen the response variable (e.g., sale price) is right-skewed and always positive, modeling log(Y) often works better:\n\nMakes the distribution more symmetric\nStabilizes variance (expensive houses have larger residual variance)\nCoefficients become interpretable as approximate percentage changes\n\n\n\nModel building strategy\nA practical workflow for building a regression model:\n\nInitial model: Start with main effects for variables you expect to matter\nDiagnostic plots: Check residuals vs. fitted, Q-Q plot, leverage\nPartial residual plots: Look for non-linear effects to add (e.g., polynomial terms)\nInteractions: Consider whether the effect of one variable depends on another\nModel selection: Use stepwise, \\(C_p\\), BIC, or cross-validation to trim\nValidate: Check MSE on held-out data\n\n\n\nReporting effects with uncertainty\nWhen reporting “the effect of X on Y,” always include:\n\nA point estimate (the coefficient or a predicted difference)\nA measure of uncertainty (confidence interval)\nThe model context (which other variables are held constant)\n\nThe same effect can look different depending on what else is in the model — report this honestly.\n\n\nConnection to the exercises\nAssignment 5 asks you to predict log(SalePrice) for Ames housing data, building from an initial model through a selected model, evaluating via MSE on a validation set, and reporting effects of square footage and bedrooms with confidence intervals.",
+    "crumbs": [
+      "Chapter 5: Final Project — Ames Housing",
+      "Key Ideas"
+    ]
+  },
+  {
+    "objectID": "ch5-logistic-regression-questions.html",
+    "href": "ch5-logistic-regression-questions.html",
+    "title": "Questions",
+    "section": "",
+    "text": "Assignment 5: Final Project — Ames Housing Data\nSource: Assignment 5",
+    "crumbs": [
+      "Chapter 5: Final Project — Ames Housing",
+      "Questions"
+    ]
+  },
+  {
+    "objectID": "ch5-logistic-regression-questions.html#assignment-5-final-project-ames-housing-data",
+    "href": "ch5-logistic-regression-questions.html#assignment-5-final-project-ames-housing-data",
+    "title": "Questions",
+    "section": "",
+    "text": "NoteDataset: Ames Housing (ames2000_NAfix.csv)\n\n\n\n\n\nThe data for this final project is based on real estate sales in Ames, Iowa in the years 2006–2010. A description of the dataset can be found in Dean De Cock (2011), “Ames, Iowa: Alternative to the Boston Housing Data as an End of Semester Regression Project,” Journal of Statistical Education, 19(3).\nA subsample of 2000 cases (with missing values fixed) is provided.\nDownload: https://web.stanford.edu/class/stats191/data/ames2000_NAfix.csv\nKey variables of interest:\n\n\n\nVariable\nDescription\n\n\n\n\nSalePrice\nSale price of the property\n\n\nGr.Liv.Area\nAbove grade (ground) living area square feet\n\n\nBedroom.AbvGr\nNumber of bedrooms above grade\n\n\nTotal.Bsmt.SF\nTotal square feet of basement area\n\n\n\n\n\n\n\nSetup: Split your data\nTo begin, randomly split the data into two sets of equal size — 1000 for selecting a model, with a final 1000 for validation and reporting confidence intervals for the final effects. For reproducibility, pick and store an integer seed:\nset.seed(1)\n\n\nProject Description\nYour task is to build a model to predict log(SalePrice) based on the remaining variables. In addition, we want estimated effects for:\n\nTotal square feet: Gr.Liv.Area + Total.Bsmt.SF\nNumber of bedrooms: Bedroom.AbvGr\n\nBeware: the data set is large enough so simple stepwise model building procedures may be very slow.\n\n\nPart 1: The study\nIn this section, you should give a description of the study underlying the dataset.\n\n\nPart 2: An initial model\nIn this section, you should develop a first-pass model for the data that will allow you to answer some of the specific goals of the study. Fit the model on the first half of your 1000 points reserved for selection. Record the performance of your model on the remaining 1000 points for validation by computing:\nMSE &lt;- sum(resid(initial.model)^2)\n\n\nPart 3: Selected model\nIn this section, you can look at partial residual or added variable plots to search for non-linear effects. You can also consider any potential interactions. Use some of the diagnostic tools seen in class to assess the quality of fit of your selected model. Record the performance of your model on the remaining 1000 points for validation by computing:\nMSE &lt;- sum(resid(selected.model)^2)\nIs it much better than your initial model?\n\n\nPart 4: Effects of interest\nReport an estimate of the effect of square footage and the number of bedrooms on your selected model. Use the 1000 points held for validation to report this effect. Include some measure of variability of the estimate, such as a confidence interval. Would you have gotten a very different answer if you had used your initial model instead of the selected model to estimate the effects?",
+    "crumbs": [
+      "Chapter 5: Final Project — Ames Housing",
+      "Questions"
+    ]
+  },
+  {
+    "objectID": "ch5-logistic-regression-solutions.html",
+    "href": "ch5-logistic-regression-solutions.html",
+    "title": "Solutions",
+    "section": "",
+    "text": "Assignment 5: Final Project — Ames Housing Data\nlibrary(tidyverse)\nlibrary(broom)\nlibrary(leaps)",
+    "crumbs": [
+      "Chapter 5: Final Project — Ames Housing",
+      "Solutions"
+    ]
+  },
+  {
+    "objectID": "ch5-logistic-regression-solutions.html#assignment-5-final-project-ames-housing-data",
+    "href": "ch5-logistic-regression-solutions.html#assignment-5-final-project-ames-housing-data",
+    "title": "Solutions",
+    "section": "",
+    "text": "Data Loading and Split\n\nset.seed(1)\n# ames &lt;- read.csv(\"https://web.stanford.edu/class/stats191/data/ames2000_NAfix.csv\")\n# selection_idx &lt;- sample(1:nrow(ames), 1000)\n# ames_selection &lt;- ames[selection_idx, ]\n# ames_validation &lt;- ames[-selection_idx, ]\n\n\n\nPart 1: The Study\n\n\nPart 2: Initial Model\n\n\nPart 3: Selected Model\n\n\nPart 4: Effects of Interest",
+    "crumbs": [
+      "Chapter 5: Final Project — Ames Housing",
+      "Solutions"
     ]
   }
 ]

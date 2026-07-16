@@ -68,8 +68,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./ch1-two-sample-tests-questions.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./ch3-multiple-regression-questions.html" rel="next">
+<link href="./ch2-simple-linear-regression-solutions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -315,7 +315,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Chapter 1: Two-Sample Tests &amp; Permutation Tests</a></li><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Key Ideas</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch3-multiple-regression-key-ideas.html">Chapter 3: Multiple Regression &amp; Diagnostics</a></li><li class="breadcrumb-item"><a href="./ch3-multiple-regression-key-ideas.html">Key Ideas</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -360,7 +360,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1-two-sample-tests-key-ideas.html" class="sidebar-item-text sidebar-link active">
+  <a href="./ch1-two-sample-tests-key-ideas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Key Ideas</span></a>
   </div>
 </li>
@@ -418,7 +418,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch3-multiple-regression-key-ideas.html" class="sidebar-item-text sidebar-link">
+  <a href="./ch3-multiple-regression-key-ideas.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Key Ideas</span></a>
   </div>
 </li>
@@ -504,14 +504,15 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#two-sample-tests-permutation-tests" id="toc-two-sample-tests-permutation-tests" class="nav-link active" data-scroll-target="#two-sample-tests-permutation-tests">Two-Sample Tests &amp; Permutation Tests</a>
+  <li><a href="#multiple-regression-diagnostics" id="toc-multiple-regression-diagnostics" class="nav-link active" data-scroll-target="#multiple-regression-diagnostics">Multiple Regression &amp; Diagnostics</a>
   <ul class="collapse">
-  <li><a href="#when-to-compare-two-groups" id="toc-when-to-compare-two-groups" class="nav-link" data-scroll-target="#when-to-compare-two-groups">When to compare two groups</a></li>
-  <li><a href="#the-two-sample-t-test" id="toc-the-two-sample-t-test" class="nav-link" data-scroll-target="#the-two-sample-t-test">The two-sample t-test</a></li>
-  <li><a href="#one-sided-vs.-two-sided-tests" id="toc-one-sided-vs.-two-sided-tests" class="nav-link" data-scroll-target="#one-sided-vs.-two-sided-tests">One-sided vs.&nbsp;two-sided tests</a></li>
-  <li><a href="#permutation-tests-randomization-tests" id="toc-permutation-tests-randomization-tests" class="nav-link" data-scroll-target="#permutation-tests-randomization-tests">Permutation tests (randomization tests)</a></li>
-  <li><a href="#the-sign-test" id="toc-the-sign-test" class="nav-link" data-scroll-target="#the-sign-test">The sign test</a></li>
-  <li><a href="#one-way-anova" id="toc-one-way-anova" class="nav-link" data-scroll-target="#one-way-anova">One-way ANOVA</a></li>
+  <li><a href="#extending-to-multiple-predictors" id="toc-extending-to-multiple-predictors" class="nav-link" data-scroll-target="#extending-to-multiple-predictors">Extending to multiple predictors</a></li>
+  <li><a href="#interpreting-coefficients" id="toc-interpreting-coefficients" class="nav-link" data-scroll-target="#interpreting-coefficients">Interpreting coefficients</a></li>
+  <li><a href="#adjusted-r2" id="toc-adjusted-r2" class="nav-link" data-scroll-target="#adjusted-r2">Adjusted <span class="math inline">\(R^2\)</span></a></li>
+  <li><a href="#f-test-for-overall-significance" id="toc-f-test-for-overall-significance" class="nav-link" data-scroll-target="#f-test-for-overall-significance">F-test for overall significance</a></li>
+  <li><a href="#multicollinearity" id="toc-multicollinearity" class="nav-link" data-scroll-target="#multicollinearity">Multicollinearity</a></li>
+  <li><a href="#diagnostics-and-influence" id="toc-diagnostics-and-influence" class="nav-link" data-scroll-target="#diagnostics-and-influence">Diagnostics and influence</a></li>
+  <li><a href="#categorical-predictors" id="toc-categorical-predictors" class="nav-link" data-scroll-target="#categorical-predictors">Categorical predictors</a></li>
   <li><a href="#connection-to-the-exercises" id="toc-connection-to-the-exercises" class="nav-link" data-scroll-target="#connection-to-the-exercises">Connection to the exercises</a></li>
   </ul></li>
   </ul>
@@ -521,7 +522,7 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Chapter 1: Two-Sample Tests &amp; Permutation Tests</a></li><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Key Ideas</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch3-multiple-regression-key-ideas.html">Chapter 3: Multiple Regression &amp; Diagnostics</a></li><li class="breadcrumb-item"><a href="./ch3-multiple-regression-key-ideas.html">Key Ideas</a></li></ol></nav>
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Key Ideas</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
@@ -540,54 +541,55 @@ window.Quarto = {
 </header>
 
 
-<section id="two-sample-tests-permutation-tests" class="level2">
-<h2 class="anchored" data-anchor-id="two-sample-tests-permutation-tests">Two-Sample Tests &amp; Permutation Tests</h2>
-<section id="when-to-compare-two-groups" class="level3">
-<h3 class="anchored" data-anchor-id="when-to-compare-two-groups">When to compare two groups</h3>
-<p>The most basic statistical question is: <em>are these two groups different?</em> When we have a continuous outcome measured in two populations (e.g., room and board costs at private vs.&nbsp;public colleges), the two-sample t-test gives us a formal framework to answer this.</p>
+<section id="multiple-regression-diagnostics" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-regression-diagnostics">Multiple Regression &amp; Diagnostics</h2>
+<section id="extending-to-multiple-predictors" class="level3">
+<h3 class="anchored" data-anchor-id="extending-to-multiple-predictors">Extending to multiple predictors</h3>
+<p>Multiple linear regression models a response as a linear function of <span class="math inline">\(p\)</span> predictors:</p>
+<p><span class="math display">\[Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \cdots + \beta_p X_{ip} + \varepsilon_i\]</span></p>
+<p>In matrix form: <span class="math inline">\(\mathbf{Y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}\)</span></p>
+<p>The least squares solution is:</p>
+<p><span class="math display">\[\hat{\boldsymbol{\beta}} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{Y}\]</span></p>
 </section>
-<section id="the-two-sample-t-test" class="level3">
-<h3 class="anchored" data-anchor-id="the-two-sample-t-test">The two-sample t-test</h3>
-<p>The test compares two sample means and asks whether the difference is larger than we’d expect from random variation alone. The key assumptions are:</p>
+<section id="interpreting-coefficients" class="level3">
+<h3 class="anchored" data-anchor-id="interpreting-coefficients">Interpreting coefficients</h3>
+<p>Each <span class="math inline">\(\beta_j\)</span> represents the expected change in <span class="math inline">\(Y\)</span> for a one-unit increase in <span class="math inline">\(X_j\)</span>, <strong>holding all other predictors constant</strong>. This “all else equal” interpretation is crucial and differs from the simple regression slope.</p>
+</section>
+<section id="adjusted-r2" class="level3">
+<h3 class="anchored" data-anchor-id="adjusted-r2">Adjusted <span class="math inline">\(R^2\)</span></h3>
+<p>Unlike <span class="math inline">\(R^2\)</span>, adjusted <span class="math inline">\(R^2\)</span> penalizes for adding predictors that don’t improve the model:</p>
+<p><span class="math display">\[R^2_{\text{adj}} = 1 - \frac{(1-R^2)(n-1)}{n-p-1}\]</span></p>
+<p>It can decrease when adding irrelevant predictors.</p>
+</section>
+<section id="f-test-for-overall-significance" class="level3">
+<h3 class="anchored" data-anchor-id="f-test-for-overall-significance">F-test for overall significance</h3>
+<p>Tests whether <em>any</em> predictor has a relationship with <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[H_0: \beta_1 = \beta_2 = \cdots = \beta_p = 0\]</span></p>
+<p><span class="math display">\[F = \frac{(\text{TSS} - \text{RSS})/p}{\text{RSS}/(n-p-1)}\]</span></p>
+</section>
+<section id="multicollinearity" class="level3">
+<h3 class="anchored" data-anchor-id="multicollinearity">Multicollinearity</h3>
+<p>When predictors are correlated, individual coefficient estimates become unstable (large standard errors) even if the overall model fits well. Diagnose with:</p>
 <ul>
-<li>Observations are independent within and between groups</li>
-<li>Each group is approximately normally distributed (or samples are large enough for CLT)</li>
-<li>For the classic test: equal variances; for Welch’s test: variances can differ</li>
+<li><strong>Variance Inflation Factor (VIF)</strong>: <span class="math inline">\(\text{VIF}_j = \frac{1}{1-R^2_j}\)</span> where <span class="math inline">\(R^2_j\)</span> is from regressing <span class="math inline">\(X_j\)</span> on all other predictors. VIF &gt; 5-10 is concerning.</li>
+<li>Correlation matrix of predictors</li>
 </ul>
-<p><strong>When variances differ</strong>, use Welch’s t-test (the default in R’s <code>t.test()</code>). You can check with an F-test or simply by comparing the group standard deviations.</p>
 </section>
-<section id="one-sided-vs.-two-sided-tests" class="level3">
-<h3 class="anchored" data-anchor-id="one-sided-vs.-two-sided-tests">One-sided vs.&nbsp;two-sided tests</h3>
+<section id="diagnostics-and-influence" class="level3">
+<h3 class="anchored" data-anchor-id="diagnostics-and-influence">Diagnostics and influence</h3>
 <ul>
-<li><strong>Two-sided</strong>: <span class="math inline">\(H_0: \mu_1 = \mu_2\)</span> vs.&nbsp;<span class="math inline">\(H_a: \mu_1 \neq \mu_2\)</span></li>
-<li><strong>One-sided</strong>: <span class="math inline">\(H_0: \mu_1 \leq \mu_2\)</span> vs.&nbsp;<span class="math inline">\(H_a: \mu_1 &gt; \mu_2\)</span></li>
+<li><strong>Leverage</strong> (<span class="math inline">\(h_{ii}\)</span>): measures how unusual an observation’s predictor values are. High leverage points <em>can</em> be influential.</li>
+<li><strong>Cook’s distance</strong>: combines leverage and residual size to measure overall influence on all fitted values.</li>
+<li><strong>Residual plots</strong>: residuals vs.&nbsp;fitted, residuals vs.&nbsp;each predictor, Q-Q plot, scale-location plot.</li>
 </ul>
-<p>Use one-sided only when you have a directional hypothesis <em>before</em> seeing the data.</p>
 </section>
-<section id="permutation-tests-randomization-tests" class="level3">
-<h3 class="anchored" data-anchor-id="permutation-tests-randomization-tests">Permutation tests (randomization tests)</h3>
-<p>When normality assumptions are questionable (e.g., skewed distributions), permutation tests provide a non-parametric alternative:</p>
-<ol type="1">
-<li>Compute the observed test statistic (e.g., t-statistic)</li>
-<li>Shuffle the group labels many times (e.g., 10,000 permutations)</li>
-<li>Recompute the statistic each time to build a null distribution</li>
-<li>Compare the observed statistic to this null distribution</li>
-</ol>
-<p>The p-value is the proportion of permuted statistics as extreme as (or more extreme than) the observed one. This approach makes no distributional assumptions — it directly tests whether the group labels matter.</p>
-</section>
-<section id="the-sign-test" class="level3">
-<h3 class="anchored" data-anchor-id="the-sign-test">The sign test</h3>
-<p>The sign test is the simplest non-parametric test. For testing whether a distribution is symmetric around zero (or whether positive outcomes are as likely as negative), count the number of positive observations and compare to the Binomial(n, 0.5) distribution. It requires no assumptions about the shape of the distribution.</p>
-</section>
-<section id="one-way-anova" class="level3">
-<h3 class="anchored" data-anchor-id="one-way-anova">One-way ANOVA</h3>
-<p>When comparing more than two groups, the one-way ANOVA extends the two-sample t-test:</p>
-<p><span class="math display">\[F = \frac{\text{Between-group variability}}{\text{Within-group variability}}\]</span></p>
-<p>Under <span class="math inline">\(H_0\)</span> (all group means are equal), <span class="math inline">\(F\)</span> follows an F-distribution. A large F indicates that at least one group mean differs. The log-transformation is often useful when the original data is skewed.</p>
+<section id="categorical-predictors" class="level3">
+<h3 class="anchored" data-anchor-id="categorical-predictors">Categorical predictors</h3>
+<p>Categorical variables enter the model as dummy/indicator variables. A factor with <span class="math inline">\(k\)</span> levels needs <span class="math inline">\(k-1\)</span> dummy variables. The coefficients represent differences from the reference (baseline) level.</p>
 </section>
 <section id="connection-to-the-exercises" class="level3">
 <h3 class="anchored" data-anchor-id="connection-to-the-exercises">Connection to the exercises</h3>
-<p>Assignment 1 covers the full spectrum of group comparison methods: Question 1 uses the standard t-test on <code>Room.Board</code>; Question 2 introduces the permutation test for <code>Top10perc</code>; Question 3 applies the sign test to fund manager returns using the Binomial distribution; and Question 4 uses one-way ANOVA (with simulation) for wages across marital status categories.</p>
+<p>Assignment 3 asks you to fit multiple regression models, interpret coefficients in the presence of other predictors, diagnose multicollinearity, identify influential observations, and assess model assumptions.</p>
 
 
 <!-- -->
@@ -1062,67 +1064,72 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./ch2-simple-linear-regression-solutions.html" class="pagination-link" aria-label="Solutions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Solutions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ch1-two-sample-tests-questions.html" class="pagination-link" aria-label="Questions">
+      <a href="./ch3-multiple-regression-questions.html" class="pagination-link" aria-label="Questions">
         <span class="nav-page-text">Questions</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Key Ideas {.unnumbered}</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Two-Sample Tests &amp; Permutation Tests</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Multiple Regression &amp; Diagnostics</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### When to compare two groups</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### Extending to multiple predictors</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>The most basic statistical question is: *are these two groups different?* When we have a continuous outcome measured in two populations (e.g., room and board costs at private vs. public colleges), the two-sample t-test gives us a formal framework to answer this.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Multiple linear regression models a response as a linear function of $p$ predictors:</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### The two-sample t-test</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>$$Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \cdots + \beta_p X_{ip} + \varepsilon_i$$</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>The test compares two sample means and asks whether the difference is larger than we'd expect from random variation alone. The key assumptions are:</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>In matrix form: $\mathbf{Y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}$</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Observations are independent within and between groups</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each group is approximately normally distributed (or samples are large enough for CLT)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For the classic test: equal variances; for Welch's test: variances can differ</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>The least squares solution is:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>$$\hat{\boldsymbol{\beta}} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{Y}$$</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**When variances differ**, use Welch's t-test (the default in R's <span class="in">`t.test()`</span>). You can check with an F-test or simply by comparing the group standard deviations.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">### Interpreting coefficients</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">### One-sided vs. two-sided tests</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>Each $\beta_j$ represents the expected change in $Y$ for a one-unit increase in $X_j$, **holding all other predictors constant**. This "all else equal" interpretation is crucial and differs from the simple regression slope.</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Two-sided**: $H_0: \mu_1 = \mu_2$ vs. $H_a: \mu_1 \neq \mu_2$</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**One-sided**: $H_0: \mu_1 \leq \mu_2$ vs. $H_a: \mu_1 &gt; \mu_2$</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Use one-sided only when you have a directional hypothesis *before* seeing the data.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Permutation tests (randomization tests)</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>When normality assumptions are questionable (e.g., skewed distributions), permutation tests provide a non-parametric alternative:</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute the observed test statistic (e.g., t-statistic)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Shuffle the group labels many times (e.g., 10,000 permutations)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Recompute the statistic each time to build a null distribution</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Compare the observed statistic to this null distribution</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### Adjusted $R^2$</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Unlike $R^2$, adjusted $R^2$ penalizes for adding predictors that don't improve the model:</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>$$R^2_{\text{adj}} = 1 - \frac{(1-R^2)(n-1)}{n-p-1}$$</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>It can decrease when adding irrelevant predictors.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">### F-test for overall significance</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Tests whether *any* predictor has a relationship with $Y$:</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>$$H_0: \beta_1 = \beta_2 = \cdots = \beta_p = 0$$</span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>The p-value is the proportion of permuted statistics as extreme as (or more extreme than) the observed one. This approach makes no distributional assumptions — it directly tests whether the group labels matter.</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>$$F = \frac{(\text{TSS} - \text{RSS})/p}{\text{RSS}/(n-p-1)}$$</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### The sign test</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### Multicollinearity</span></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>The sign test is the simplest non-parametric test. For testing whether a distribution is symmetric around zero (or whether positive outcomes are as likely as negative), count the number of positive observations and compare to the Binomial(n, 0.5) distribution. It requires no assumptions about the shape of the distribution.</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>When predictors are correlated, individual coefficient estimates become unstable (large standard errors) even if the overall model fits well. Diagnose with:</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### One-way ANOVA</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>When comparing more than two groups, the one-way ANOVA extends the two-sample t-test:</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>$$F = \frac{\text{Between-group variability}}{\text{Within-group variability}}$$</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Under $H_0$ (all group means are equal), $F$ follows an F-distribution. A large F indicates that at least one group mean differs. The log-transformation is often useful when the original data is skewed.</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### Connection to the exercises</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>Assignment 1 covers the full spectrum of group comparison methods: Question 1 uses the standard t-test on <span class="in">`Room.Board`</span>; Question 2 introduces the permutation test for <span class="in">`Top10perc`</span>; Question 3 applies the sign test to fund manager returns using the Binomial distribution; and Question 4 uses one-way ANOVA (with simulation) for wages across marital status categories.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Variance Inflation Factor (VIF)**: $\text{VIF}_j = \frac{1}{1-R^2_j}$ where $R^2_j$ is from regressing $X_j$ on all other predictors. VIF &gt; 5-10 is concerning.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Correlation matrix of predictors</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### Diagnostics and influence</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Leverage** ($h_{ii}$): measures how unusual an observation's predictor values are. High leverage points *can* be influential.</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cook's distance**: combines leverage and residual size to measure overall influence on all fitted values.</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Residual plots**: residuals vs. fitted, residuals vs. each predictor, Q-Q plot, scale-location plot.</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="fu">### Categorical predictors</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>Categorical variables enter the model as dummy/indicator variables. A factor with $k$ levels needs $k-1$ dummy variables. The coefficients represent differences from the reference (baseline) level.</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### Connection to the exercises</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>Assignment 3 asks you to fit multiple regression models, interpret coefficients in the presence of other predictors, diagnose multicollinearity, identify influential observations, and assess model assumptions.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

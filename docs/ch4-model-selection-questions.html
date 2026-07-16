@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Key Ideas – STATS 191: Applied Statistics Exercises</title>
+<title>Questions – STATS 191: Applied Statistics Exercises</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -68,8 +68,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./ch1-two-sample-tests-questions.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./ch4-model-selection-solutions.html" rel="next">
+<link href="./ch4-model-selection-key-ideas.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -315,7 +315,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Chapter 1: Two-Sample Tests &amp; Permutation Tests</a></li><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Key Ideas</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch4-model-selection-key-ideas.html">Chapter 4: Model Selection &amp; Logistic Regression</a></li><li class="breadcrumb-item"><a href="./ch4-model-selection-questions.html">Questions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -360,7 +360,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1-two-sample-tests-key-ideas.html" class="sidebar-item-text sidebar-link active">
+  <a href="./ch1-two-sample-tests-key-ideas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Key Ideas</span></a>
   </div>
 </li>
@@ -453,7 +453,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4-model-selection-questions.html" class="sidebar-item-text sidebar-link">
+  <a href="./ch4-model-selection-questions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Questions</span></a>
   </div>
 </li>
@@ -504,15 +504,11 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#two-sample-tests-permutation-tests" id="toc-two-sample-tests-permutation-tests" class="nav-link active" data-scroll-target="#two-sample-tests-permutation-tests">Two-Sample Tests &amp; Permutation Tests</a>
+  <li><a href="#assignment-4-model-selection-logistic-regression" id="toc-assignment-4-model-selection-logistic-regression" class="nav-link active" data-scroll-target="#assignment-4-model-selection-logistic-regression">Assignment 4: Model Selection &amp; Logistic Regression</a>
   <ul class="collapse">
-  <li><a href="#when-to-compare-two-groups" id="toc-when-to-compare-two-groups" class="nav-link" data-scroll-target="#when-to-compare-two-groups">When to compare two groups</a></li>
-  <li><a href="#the-two-sample-t-test" id="toc-the-two-sample-t-test" class="nav-link" data-scroll-target="#the-two-sample-t-test">The two-sample t-test</a></li>
-  <li><a href="#one-sided-vs.-two-sided-tests" id="toc-one-sided-vs.-two-sided-tests" class="nav-link" data-scroll-target="#one-sided-vs.-two-sided-tests">One-sided vs.&nbsp;two-sided tests</a></li>
-  <li><a href="#permutation-tests-randomization-tests" id="toc-permutation-tests-randomization-tests" class="nav-link" data-scroll-target="#permutation-tests-randomization-tests">Permutation tests (randomization tests)</a></li>
-  <li><a href="#the-sign-test" id="toc-the-sign-test" class="nav-link" data-scroll-target="#the-sign-test">The sign test</a></li>
-  <li><a href="#one-way-anova" id="toc-one-way-anova" class="nav-link" data-scroll-target="#one-way-anova">One-way ANOVA</a></li>
-  <li><a href="#connection-to-the-exercises" id="toc-connection-to-the-exercises" class="nav-link" data-scroll-target="#connection-to-the-exercises">Connection to the exercises</a></li>
+  <li><a href="#question-1-interpreting-parameters-when-features-are-correlated" id="toc-question-1-interpreting-parameters-when-features-are-correlated" class="nav-link" data-scroll-target="#question-1-interpreting-parameters-when-features-are-correlated">Question 1: Interpreting parameters when features are correlated</a></li>
+  <li><a href="#question-2-model-selection-for-multiple-linear-regression" id="toc-question-2-model-selection-for-multiple-linear-regression" class="nav-link" data-scroll-target="#question-2-model-selection-for-multiple-linear-regression">Question 2: Model selection for multiple linear regression</a></li>
+  <li><a href="#question-3-logistic-regression" id="toc-question-3-logistic-regression" class="nav-link" data-scroll-target="#question-3-logistic-regression">Question 3: Logistic Regression</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -521,9 +517,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Chapter 1: Two-Sample Tests &amp; Permutation Tests</a></li><li class="breadcrumb-item"><a href="./ch1-two-sample-tests-key-ideas.html">Key Ideas</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch4-model-selection-key-ideas.html">Chapter 4: Model Selection &amp; Logistic Regression</a></li><li class="breadcrumb-item"><a href="./ch4-model-selection-questions.html">Questions</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Key Ideas</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Questions</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -540,54 +536,54 @@ window.Quarto = {
 </header>
 
 
-<section id="two-sample-tests-permutation-tests" class="level2">
-<h2 class="anchored" data-anchor-id="two-sample-tests-permutation-tests">Two-Sample Tests &amp; Permutation Tests</h2>
-<section id="when-to-compare-two-groups" class="level3">
-<h3 class="anchored" data-anchor-id="when-to-compare-two-groups">When to compare two groups</h3>
-<p>The most basic statistical question is: <em>are these two groups different?</em> When we have a continuous outcome measured in two populations (e.g., room and board costs at private vs.&nbsp;public colleges), the two-sample t-test gives us a formal framework to answer this.</p>
-</section>
-<section id="the-two-sample-t-test" class="level3">
-<h3 class="anchored" data-anchor-id="the-two-sample-t-test">The two-sample t-test</h3>
-<p>The test compares two sample means and asks whether the difference is larger than we’d expect from random variation alone. The key assumptions are:</p>
+<section id="assignment-4-model-selection-logistic-regression" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-4-model-selection-logistic-regression">Assignment 4: Model Selection &amp; Logistic Regression</h2>
+<p><em>Source: <a href="https://web.stanford.edu/class/stats191/assignments/assignment4.html">Assignment 4</a></em></p>
+<section id="question-1-interpreting-parameters-when-features-are-correlated" class="level3">
+<h3 class="anchored" data-anchor-id="question-1-interpreting-parameters-when-features-are-correlated">Question 1: Interpreting parameters when features are correlated</h3>
+<p>Generate a simulated data set as follows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>X1 <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>)                       <span class="co"># uniformly distributed between 0 and 1</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>X2 <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">*</span> X1 <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">/</span> <span class="dv">10</span>      <span class="co"># slightly noisy version of X1</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> X1 <span class="sc">+</span> <span class="dv">1</span> <span class="sc">*</span> X2 <span class="sc">+</span> <span class="fl">0.95</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>(a)</strong> Consider the data generated above and the model <code>lm(Y ~ X1 + X2)</code>. What are the true <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span>, <span class="math inline">\(\beta_2\)</span>? What is the true <span class="math inline">\(\sigma^2\)</span>?</p>
+<p><strong>(b)</strong> Create a scatterplot with <code>X1</code> on the X-axis and <code>X2</code> on the Y-axis. What is the sample correlation of <code>X1</code> and <code>X2</code>? (Use <code>cor</code>.)</p>
+<p><strong>(c)</strong> Fit the model <code>lm(Y ~ X1 + X2)</code>. At level 5%, can you reject the null hypothesis <span class="math inline">\(H_0: \beta_{X1} = 0\)</span>? How about the null hypothesis <span class="math inline">\(H_0: \beta_{X2} = 0\)</span>?</p>
+<p><strong>(d)</strong> Fit the model <code>lm(Y ~ X1)</code>. At level 5%, can you reject the null hypothesis <span class="math inline">\(H_0: \beta_{X1} = 0\)</span>? Next, fit the model <code>lm(Y ~ X2)</code>. At level 5%, can you reject the null hypothesis <span class="math inline">\(H_0: \beta_{X2} = 0\)</span>?</p>
+<p><strong>(e)</strong> Do the results of parts (c) and (d) contradict each other? Explain.</p>
+<p><strong>(f)</strong> In this part, we’ll add a single point to the data set to explore outliers and high leverage. We’ll call a point an outlier if its residual is at least 3 in absolute value, and we’ll say a point has high leverage if its <code>hatvalues</code> score is at least 0.2. For each of the following, pick values for <code>(X1, X2, Y)</code>:</p>
 <ul>
-<li>Observations are independent within and between groups</li>
-<li>Each group is approximately normally distributed (or samples are large enough for CLT)</li>
-<li>For the classic test: equal variances; for Welch’s test: variances can differ</li>
+<li><strong>A.</strong> A point that would be an outlier relative to the other 100 points but not a point of high leverage.</li>
+<li><strong>B.</strong> A point that would be a point of high leverage relative to the other 100 points but not an outlier.</li>
+<li><strong>C.</strong> A point that would be both a point of high leverage and an outlier relative to the other 100 points.</li>
 </ul>
-<p><strong>When variances differ</strong>, use Welch’s t-test (the default in R’s <code>t.test()</code>). You can check with an F-test or simply by comparing the group standard deviations.</p>
 </section>
-<section id="one-sided-vs.-two-sided-tests" class="level3">
-<h3 class="anchored" data-anchor-id="one-sided-vs.-two-sided-tests">One-sided vs.&nbsp;two-sided tests</h3>
-<ul>
-<li><strong>Two-sided</strong>: <span class="math inline">\(H_0: \mu_1 = \mu_2\)</span> vs.&nbsp;<span class="math inline">\(H_a: \mu_1 \neq \mu_2\)</span></li>
-<li><strong>One-sided</strong>: <span class="math inline">\(H_0: \mu_1 \leq \mu_2\)</span> vs.&nbsp;<span class="math inline">\(H_a: \mu_1 &gt; \mu_2\)</span></li>
-</ul>
-<p>Use one-sided only when you have a directional hypothesis <em>before</em> seeing the data.</p>
+<section id="question-2-model-selection-for-multiple-linear-regression" class="level3">
+<h3 class="anchored" data-anchor-id="question-2-model-selection-for-multiple-linear-regression">Question 2: Model selection for multiple linear regression</h3>
+<p>Use the <code>Carseats</code> data we saw in Assignment 3 for this problem.</p>
+<p><strong>(a)</strong> Fit a full model <code>Sales ~ .</code> to the data.</p>
+<p><strong>(b)</strong> Extract the design matrix from your model in (a), discarding the column for the intercept.</p>
+<p><strong>(c)</strong> Use <code>leaps</code> to select a model using adjusted <span class="math inline">\(R^2\)</span> as a criterion, storing the 5 best models of each size.</p>
+<p><strong>(d)</strong> Use <code>leaps</code> to select a model using Mallow’s <span class="math inline">\(C_p\)</span> as a criterion, storing the 5 best models of each size.</p>
+<p><strong>(e)</strong> Use <code>step</code> to select a model using <code>direction="forward"</code>, starting from <code>Sales ~ 1</code> with the upper model being the model in (a). Do the models in (c), (d), and (e) agree?</p>
+<p><strong>(f)</strong> Make a plot of <span class="math inline">\(C_p\)</span> versus model size. Is your selected model clearly better than all others or are there other models of similar quality?</p>
 </section>
-<section id="permutation-tests-randomization-tests" class="level3">
-<h3 class="anchored" data-anchor-id="permutation-tests-randomization-tests">Permutation tests (randomization tests)</h3>
-<p>When normality assumptions are questionable (e.g., skewed distributions), permutation tests provide a non-parametric alternative:</p>
-<ol type="1">
-<li>Compute the observed test statistic (e.g., t-statistic)</li>
-<li>Shuffle the group labels many times (e.g., 10,000 permutations)</li>
-<li>Recompute the statistic each time to build a null distribution</li>
-<li>Compare the observed statistic to this null distribution</li>
-</ol>
-<p>The p-value is the proportion of permuted statistics as extreme as (or more extreme than) the observed one. This approach makes no distributional assumptions — it directly tests whether the group labels matter.</p>
-</section>
-<section id="the-sign-test" class="level3">
-<h3 class="anchored" data-anchor-id="the-sign-test">The sign test</h3>
-<p>The sign test is the simplest non-parametric test. For testing whether a distribution is symmetric around zero (or whether positive outcomes are as likely as negative), count the number of positive observations and compare to the Binomial(n, 0.5) distribution. It requires no assumptions about the shape of the distribution.</p>
-</section>
-<section id="one-way-anova" class="level3">
-<h3 class="anchored" data-anchor-id="one-way-anova">One-way ANOVA</h3>
-<p>When comparing more than two groups, the one-way ANOVA extends the two-sample t-test:</p>
-<p><span class="math display">\[F = \frac{\text{Between-group variability}}{\text{Within-group variability}}\]</span></p>
-<p>Under <span class="math inline">\(H_0\)</span> (all group means are equal), <span class="math inline">\(F\)</span> follows an F-distribution. A large F indicates that at least one group mean differs. The log-transformation is often useful when the original data is skewed.</p>
-</section>
-<section id="connection-to-the-exercises" class="level3">
-<h3 class="anchored" data-anchor-id="connection-to-the-exercises">Connection to the exercises</h3>
-<p>Assignment 1 covers the full spectrum of group comparison methods: Question 1 uses the standard t-test on <code>Room.Board</code>; Question 2 introduces the permutation test for <code>Top10perc</code>; Question 3 applies the sign test to fund manager returns using the Binomial distribution; and Question 4 uses one-way ANOVA (with simulation) for wages across marital status categories.</p>
+<section id="question-3-logistic-regression" class="level3">
+<h3 class="anchored" data-anchor-id="question-3-logistic-regression">Question 3: Logistic Regression</h3>
+<p>Consider the <code>Wage</code> data we saw in Assignment 1.</p>
+<p><strong>(a)</strong> Create an outcome variable <code>high</code> which is <code>TRUE</code> if <code>wage &gt; 250</code> and <code>FALSE</code> otherwise.</p>
+<p><strong>(b)</strong> Fit a logistic regression model (<code>high ~ maritl + age + health + health_ins + education + race</code>).</p>
+<p><strong>(c)</strong> At a 5% level, test the null hypothesis that the effect of <code>maritl</code> is 0 in the model in part (b).</p>
+<p><strong>(d)</strong> Split the data into two sets of equal size using this snippet of code to form a half for model selection and a second half for inference. Focus on students with at least HS education:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>atleast_HS <span class="ot">&lt;-</span> Wage<span class="sc">$</span>education <span class="sc">!=</span> <span class="st">"1. &lt; HS Grad"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>selection <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="fu">nrow</span>(Wage))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>selection[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(Wage), <span class="fl">0.5</span> <span class="sc">*</span> <span class="fu">nrow</span>(Wage), <span class="at">replace =</span> <span class="cn">FALSE</span>)] <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>inference <span class="ot">&lt;-</span> <span class="sc">!</span>selection</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>selection <span class="ot">&lt;-</span> selection <span class="sc">&amp;</span> atleast_HS</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>inference <span class="ot">&lt;-</span> inference <span class="sc">&amp;</span> atleast_HS</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>(e)</strong> Using subset-selection, select a model using forward selection with <code>step</code>, with the largest model being the model in (b). Call this model <code>selected.glm</code>.</p>
+<p><strong>(f)</strong> Fit the same model selected in (e) on subset <code>inference</code>. Call this model <code>split.glm</code>. Compare the <code>summary()</code> of <code>split.glm</code> and <code>selected.glm</code>. In terms of overall significance of estimated effects, would your conclusions be very different between <code>selected.glm</code> and <code>split.glm</code>? Do any effects that were significant at level 5% in <code>selected.glm</code> switch to not significant in <code>split.glm</code>?</p>
 
 
 <!-- -->
@@ -1062,67 +1058,90 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./ch4-model-selection-key-ideas.html" class="pagination-link" aria-label="Key Ideas">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Key Ideas</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ch1-two-sample-tests-questions.html" class="pagination-link" aria-label="Questions">
-        <span class="nav-page-text">Questions</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./ch4-model-selection-solutions.html" class="pagination-link" aria-label="Solutions">
+        <span class="nav-page-text">Solutions</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Key Ideas {.unnumbered}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Two-Sample Tests &amp; Permutation Tests</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### When to compare two groups</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>The most basic statistical question is: *are these two groups different?* When we have a continuous outcome measured in two populations (e.g., room and board costs at private vs. public colleges), the two-sample t-test gives us a formal framework to answer this.</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### The two-sample t-test</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>The test compares two sample means and asks whether the difference is larger than we'd expect from random variation alone. The key assumptions are:</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Observations are independent within and between groups</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each group is approximately normally distributed (or samples are large enough for CLT)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For the classic test: equal variances; for Welch's test: variances can differ</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**When variances differ**, use Welch's t-test (the default in R's <span class="in">`t.test()`</span>). You can check with an F-test or simply by comparing the group standard deviations.</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">### One-sided vs. two-sided tests</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Two-sided**: $H_0: \mu_1 = \mu_2$ vs. $H_a: \mu_1 \neq \mu_2$</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**One-sided**: $H_0: \mu_1 \leq \mu_2$ vs. $H_a: \mu_1 &gt; \mu_2$</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Use one-sided only when you have a directional hypothesis *before* seeing the data.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Permutation tests (randomization tests)</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>When normality assumptions are questionable (e.g., skewed distributions), permutation tests provide a non-parametric alternative:</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute the observed test statistic (e.g., t-statistic)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Shuffle the group labels many times (e.g., 10,000 permutations)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Recompute the statistic each time to build a null distribution</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Compare the observed statistic to this null distribution</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>The p-value is the proportion of permuted statistics as extreme as (or more extreme than) the observed one. This approach makes no distributional assumptions — it directly tests whether the group labels matter.</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### The sign test</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>The sign test is the simplest non-parametric test. For testing whether a distribution is symmetric around zero (or whether positive outcomes are as likely as negative), count the number of positive observations and compare to the Binomial(n, 0.5) distribution. It requires no assumptions about the shape of the distribution.</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### One-way ANOVA</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>When comparing more than two groups, the one-way ANOVA extends the two-sample t-test:</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>$$F = \frac{\text{Between-group variability}}{\text{Within-group variability}}$$</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Under $H_0$ (all group means are equal), $F$ follows an F-distribution. A large F indicates that at least one group mean differs. The log-transformation is often useful when the original data is skewed.</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### Connection to the exercises</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>Assignment 1 covers the full spectrum of group comparison methods: Question 1 uses the standard t-test on <span class="in">`Room.Board`</span>; Question 2 introduces the permutation test for <span class="in">`Top10perc`</span>; Question 3 applies the sign test to fund manager returns using the Binomial distribution; and Question 4 uses one-way ANOVA (with simulation) for wages across marital status categories.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Questions {.unnumbered}</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Assignment 4: Model Selection &amp; Logistic Regression</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>*Source: [Assignment 4](https://web.stanford.edu/class/stats191/assignments/assignment4.html)*</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">### Question 1: Interpreting parameters when features are correlated</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>Generate a simulated data set as follows:</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>X1 <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>)                       <span class="co"># uniformly distributed between 0 and 1</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>X2 <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">*</span> X1 <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">/</span> <span class="dv">10</span>      <span class="co"># slightly noisy version of X1</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> X1 <span class="sc">+</span> <span class="dv">1</span> <span class="sc">*</span> X2 <span class="sc">+</span> <span class="fl">0.95</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>**(a)** Consider the data generated above and the model <span class="in">`lm(Y ~ X1 + X2)`</span>. What are the true $\beta_0$, $\beta_1$, $\beta_2$? What is the true $\sigma^2$?</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>**(b)** Create a scatterplot with <span class="in">`X1`</span> on the X-axis and <span class="in">`X2`</span> on the Y-axis. What is the sample correlation of <span class="in">`X1`</span> and <span class="in">`X2`</span>? (Use <span class="in">`cor`</span>.)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>**(c)** Fit the model <span class="in">`lm(Y ~ X1 + X2)`</span>. At level 5%, can you reject the null hypothesis $H_0: \beta_{X1} = 0$? How about the null hypothesis $H_0: \beta_{X2} = 0$?</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>**(d)** Fit the model <span class="in">`lm(Y ~ X1)`</span>. At level 5%, can you reject the null hypothesis $H_0: \beta_{X1} = 0$? Next, fit the model <span class="in">`lm(Y ~ X2)`</span>. At level 5%, can you reject the null hypothesis $H_0: \beta_{X2} = 0$?</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>**(e)** Do the results of parts (c) and (d) contradict each other? Explain.</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>**(f)** In this part, we'll add a single point to the data set to explore outliers and high leverage. We'll call a point an outlier if its residual is at least 3 in absolute value, and we'll say a point has high leverage if its <span class="in">`hatvalues`</span> score is at least 0.2. For each of the following, pick values for <span class="in">`(X1, X2, Y)`</span>:</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**A.** A point that would be an outlier relative to the other 100 points but not a point of high leverage.</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**B.** A point that would be a point of high leverage relative to the other 100 points but not an outlier.</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**C.** A point that would be both a point of high leverage and an outlier relative to the other 100 points.</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="fu">### Question 2: Model selection for multiple linear regression</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>Use the <span class="in">`Carseats`</span> data we saw in Assignment 3 for this problem.</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>**(a)** Fit a full model <span class="in">`Sales ~ .`</span> to the data.</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>**(b)** Extract the design matrix from your model in (a), discarding the column for the intercept.</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>**(c)** Use <span class="in">`leaps`</span> to select a model using adjusted $R^2$ as a criterion, storing the 5 best models of each size.</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>**(d)** Use <span class="in">`leaps`</span> to select a model using Mallow's $C_p$ as a criterion, storing the 5 best models of each size.</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>**(e)** Use <span class="in">`step`</span> to select a model using <span class="in">`direction="forward"`</span>, starting from <span class="in">`Sales ~ 1`</span> with the upper model being the model in (a). Do the models in (c), (d), and (e) agree?</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>**(f)** Make a plot of $C_p$ versus model size. Is your selected model clearly better than all others or are there other models of similar quality?</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="fu">### Question 3: Logistic Regression</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>Consider the <span class="in">`Wage`</span> data we saw in Assignment 1.</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>**(a)** Create an outcome variable <span class="in">`high`</span> which is <span class="in">`TRUE`</span> if <span class="in">`wage &gt; 250`</span> and <span class="in">`FALSE`</span> otherwise.</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>**(b)** Fit a logistic regression model (<span class="in">`high ~ maritl + age + health + health_ins + education + race`</span>).</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>**(c)** At a 5% level, test the null hypothesis that the effect of <span class="in">`maritl`</span> is 0 in the model in part (b).</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>**(d)** Split the data into two sets of equal size using this snippet of code to form a half for model selection and a second half for inference. Focus on students with at least HS education:</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>atleast_HS <span class="ot">&lt;-</span> Wage<span class="sc">$</span>education <span class="sc">!=</span> <span class="st">"1. &lt; HS Grad"</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>selection <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">TRUE</span>, <span class="fu">nrow</span>(Wage))</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>selection[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(Wage), <span class="fl">0.5</span> <span class="sc">*</span> <span class="fu">nrow</span>(Wage), <span class="at">replace =</span> <span class="cn">FALSE</span>)] <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>inference <span class="ot">&lt;-</span> <span class="sc">!</span>selection</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>selection <span class="ot">&lt;-</span> selection <span class="sc">&amp;</span> atleast_HS</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>inference <span class="ot">&lt;-</span> inference <span class="sc">&amp;</span> atleast_HS</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>**(e)** Using subset-selection, select a model using forward selection with <span class="in">`step`</span>, with the largest model being the model in (b). Call this model <span class="in">`selected.glm`</span>.</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>**(f)** Fit the same model selected in (e) on subset <span class="in">`inference`</span>. Call this model <span class="in">`split.glm`</span>. Compare the <span class="in">`summary()`</span> of <span class="in">`split.glm`</span> and <span class="in">`selected.glm`</span>. In terms of overall significance of estimated effects, would your conclusions be very different between <span class="in">`selected.glm`</span> and <span class="in">`split.glm`</span>? Do any effects that were significant at level 5% in <span class="in">`selected.glm`</span> switch to not significant in <span class="in">`split.glm`</span>?</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
